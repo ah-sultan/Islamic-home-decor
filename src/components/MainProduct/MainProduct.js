@@ -3,15 +3,16 @@ import ProductCard from "../ProductCard/ProductCard"
 import Image from "next/image"
 import {BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from "swiper";
 import 'swiper/css';
 
 // images 
 import productImage from '../../../public/images/main-product/banner-img.png'
+import ProductMiniCard from "../ProductMiniCard/ProductMiniCard";
 function MainProduct(props) {
+    const recommendedProduct = props.product.slice(1,8)
   return (
     <>
-        <section className="pt-8">
+        <section className="py-8">
                 <div className="container">
                     <div className="border bg-white shadow-sm">
                         <div className="flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
@@ -73,6 +74,18 @@ function MainProduct(props) {
                             <div className="w-3/12 border-l border-gray-200">
                                 <div className="px-5">
                                     <h5 className="text-black border-b border-gray-200 py-4">Recommended For You</h5>
+                                    {/* Product List */}
+                                    <div>
+                                        {
+                                            recommendedProduct.map((data, index) => {
+                                                return(
+                                                    <div key={index} className="mt-5">
+                                                        <ProductMiniCard img={data.image} title={data.title} price={data.price}/>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -8,6 +8,9 @@ import { AiFillStar } from 'react-icons/ai'
 function ProductCard(props) {
     const rate = Math.floor(props.rating.rate)
     const discount = 10
+    const totalDiscount = props.price - discount / 10
+
+    
     return (
         <>
             <div className="w-full group/bar">
@@ -51,7 +54,7 @@ function ProductCard(props) {
                             ${props.price}
                         </span>
                         <del className="inline-block pl-2 text-sm text-gray-400">
-                            {props.price - discount / 10}$
+                            {totalDiscount.toFixed(2)}$
                         </del>
                     </div>
                 </div>

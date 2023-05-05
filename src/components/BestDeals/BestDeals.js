@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import ProductCard from '../ProductCard/ProductCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from "swiper";
+import { Navigation, Pagination } from "swiper";
 import 'swiper/css';
 import {BsChevronLeft, BsChevronRight} from 'react-icons/bs'
 
@@ -58,8 +58,8 @@ function BestDeals(props) {
                             <Swiper
                                 slidesPerView={4}
                                 spaceBetween={24}
-                                agination={pagination}
-                                modules={[Pagination]}
+                                pagination={pagination}
+                                modules={[Pagination, Navigation]}
                                 className="testimoniaSwiper"
                                 navigation = {{
                                         nextEl: '.nextSlide',
@@ -84,18 +84,17 @@ function BestDeals(props) {
                                 <BsChevronRight className="text-xl"/>
                             </button>
 
-                            <div className="flex justify-center gap-x-3 bestDealsDots mt-5 ">
-                                    <button className="slider-dots"></button>
-                                    <button className="slider-dots"></button>
-                                    <button className="slider-dots"></button>
+                            <div className="flex justify-center gap-x-3 bestDealsDots mt-6 mb-8 ">
+                                    
                             </div>
                         </div>
 
                         {/* Banner Image */}
-                        <div>
-                            <Image src={deals_img} alt="deals-img" width={1000} height={200} className="w-full max-h-full"/>
-                        </div>
+                       
                      </div>
+                     <div>
+                            <Image src={deals_img} alt="deals-img" width={1000} height={200} className="w-full max-h-full"/>
+                    </div>
                 </div>
             </section>
         </>
