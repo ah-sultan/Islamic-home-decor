@@ -14,6 +14,14 @@
     .section-title{
         @apply text-black text-2xl font-medium
     }
+
+    .slider-dots{
+        @apply w-4 h-3 border-accent border rounded-full
+    }
+
+    .slider-arrow{
+        @apply trns-1 w-10 h-10 rounded-full center-child inline-block text-gray-400 z-30 hover:bg-primary hover:text-white
+    }
 }
 
 @layer utilities {

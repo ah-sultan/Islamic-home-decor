@@ -1,5 +1,6 @@
 import BestDeals from "@/components/BestDeals/BestDeals"
 import Hero from "@/components/Header/Hero/Hero"
+import MainProduct from "@/components/MainProduct/MainProduct"
 import Meta from "@/components/Meta"
 
 export default function Home({ product }) {
@@ -8,6 +9,8 @@ export default function Home({ product }) {
       <Meta />
       <Hero />
       <BestDeals product={product} />
+      <MainProduct product={product}/>
+
     </>
   )
 }
