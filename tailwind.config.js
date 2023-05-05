@@ -1,5 +1,4 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
-const primary = "#454584"
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
@@ -39,7 +38,8 @@ module.exports = {
       },
 
       colors: {
-        "primary": "red",
+        "primary": "#77037B",
+        "accent": "orange",
         "dark": "#252734",
         "darkBlue": "#0E111F",
         "light": "#F6F6F8",
@@ -48,5 +48,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+
+  ],
 }

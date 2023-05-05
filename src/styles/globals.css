@@ -9,3 +9,22 @@
     }
     
 }
+
+@layer components{
+    .section-title{
+        @apply text-black text-2xl font-medium
+    }
+}
+
+@layer utilities {
+    .center-child{
+        @apply flex justify-center items-center
+    }
+    .trns-1{
+        transition: all .3s ease-in-out;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        -ms-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+}
+}
