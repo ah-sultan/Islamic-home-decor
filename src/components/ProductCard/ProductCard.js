@@ -15,9 +15,9 @@ function ProductCard(props) {
                 </div>
                 <div className="pt-2">
                     <Link href="/">
-                        <span className="text text-sm text-blue-400 capitalize">{props.title.substring(1, 30)}</span>
+                        <span className="text text-sm text-blue-400 capitalize h-10">{props.title.substring(1, 40)}</span>
                     </Link>
-                    <div className="my-6 flex items-center">
+                    <div className="mt-6 mb-4 flex items-center">
                         <div>
                             {
                                 Array(rate).fill().map((_, index) => (
@@ -34,9 +34,12 @@ function ProductCard(props) {
                         <span className="inline-block pl-3 text-blue-400 text-sm">{props.rating.count} reviews</span>
                     </div>
                     <div className="">
-                        <span>
+                        <span className="text-primary">
                             ${props.price}
                         </span>
+                        <del className="inline-block pl-2 text-sm text-gray-400">
+                            {props.price - discount / 10}$
+                        </del>
                     </div>
                 </div>
             </div>
