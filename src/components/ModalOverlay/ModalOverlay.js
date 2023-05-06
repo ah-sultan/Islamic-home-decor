@@ -4,7 +4,7 @@ function ModalOverlay(props) {
 
     const showOverlay = props.showModalOverlay
     useEffect(() => {
-        if(showOverlay){
+        if(false){
             document.body.style.overflow = 'hidden'
         }else{
             document.body.style.overflow = 'unset'
