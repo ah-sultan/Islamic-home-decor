@@ -13,7 +13,7 @@ function ModalOverlay(props) {
 
   return (
     <>
-        <div className={`fixed w-full trns-1 h-full top-0 bottom-0 left-0 right-0 z-40 ${showOverlay ? 'visible bg-[rgba(0,0,0,0.7)]' : 'invisible scale-0 bg-[rgba(0,0,0,1)]'}`}>
+        <div className={` hidden fixed w-full trns-1 h-full top-0 bottom-0 left-0 right-0 z-40 ${showOverlay ? 'visible bg-[rgba(0,0,0,0.7)]' : 'invisible scale-0 bg-[rgba(0,0,0,1)]'}`}>
 
         </div>
     </>

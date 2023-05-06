@@ -9,7 +9,7 @@ function LoginBox() {
   return (
     <>
         
-        <div>
+        <div className='hidden'>
             <ModalOverlay showModalOverlay={true}/>
             <div className="w-[400px] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-50">
                 <div className="bg-primary px-8 py-3.5 flex justify-between items-center">
