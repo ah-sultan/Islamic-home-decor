@@ -9,7 +9,7 @@ function Copyright() {
                 <div>
                     <p className="text- mt-4 mb-2 text-gray-400">Payments By: </p>
                     <div>
-                        <Image src={paymentsImg} alt="mayment-img" className="w-[150px] mx-auto"/>
+                        <Image src={paymentsImg} alt="payment-img" className="w-[150px] mx-auto"/>
                     </div>
                 </div>
                 <p className="text-sm text-gray-500 mt-5">© 2014-2022 BDSHOP.COM. All Rights Reserved.</p>

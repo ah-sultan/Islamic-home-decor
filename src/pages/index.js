@@ -1,5 +1,5 @@
 import BestDeals from "@/components/BestDeals/BestDeals"
-import Hero from "@/components/Header/Hero/Hero"
+import Hero from "@/components/Hero/Hero"
 import MainProduct from "@/components/MainProduct/MainProduct"
 import Meta from "@/components/Meta"
 import BannerImg from "@/components/BannerImg/BannerImg"

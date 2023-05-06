@@ -2,13 +2,13 @@ import SideNav from "@/components/SideNav/SideNav"
 import Image from "next/image"
 
 // Images
-import heroImg1 from '../../../../public/images/hero/hero-img-1.png'
-import heroImg2 from '../../../../public/images/hero/hero-img-2.jpeg'
-import heroImg3 from '../../../../public/images/hero/hero-img-3.png'
-import heroImg4 from '../../../../public/images/hero/hero-img-4.png'
-import heroImg5 from '../../../../public/images/hero/hero-img-5.png'
-import heroImg6 from '../../../../public/images/hero/hero-img-6.png'
-import heroImg7 from '../../../../public/images/hero/hero-img-7.png'
+import heroImg1 from '../../../public/images/hero/hero-img-1.png'
+import heroImg2 from '../../../public/images/hero/hero-img-2.jpeg'
+import heroImg3 from '../../../public/images/hero/hero-img-3.png'
+import heroImg4 from '../../../public/images/hero/hero-img-4.png'
+import heroImg5 from '../../../public/images/hero/hero-img-5.png'
+import heroImg6 from '../../../public/images/hero/hero-img-6.png'
+import heroImg7 from '../../../public/images/hero/hero-img-7.png'
 
 
 function Hero() {

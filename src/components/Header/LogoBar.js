@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUsergroupAdd } from 'react-icons/ai';
 
-function LogoBar() {
+function LogoBar(props) {
     return (
         <>
             <div>
@@ -22,13 +22,15 @@ function LogoBar() {
                         <div>
                             <ul className="flex items-center gap-x-3">
                                 <li>
-                                    <AiOutlineHeart className="inline-block text-gray-400 text-4xl" />
+                                    <AiOutlineHeart className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                 </li>
                                 <li>
-                                    <AiOutlineShoppingCart className="inline-block text-gray-400 text-4xl" />
+                                    <button onClick={() => props.cartHandler(true)}>
+                                        <AiOutlineShoppingCart className="inline-block hover:text-primary text-gray-400 text-4xl" />
+                                    </button>
                                 </li>
                                 <li className="flex items-center gap-0.5">
-                                    <AiOutlineUsergroupAdd className="inline-block text-gray-400 text-4xl" />
+                                    <AiOutlineUsergroupAdd className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                     <div className="inline-block">
                                         <Link href="/">
                                             <span className="block text-sm">Login</span>

@@ -23,6 +23,10 @@
         @apply trns-1 w-10 h-10 rounded-full center-child inline-block text-gray-400 z-30 hover:bg-primary hover:text-white
     }
 
+    .form-input{
+        @apply py-3 px-4 border border-gray-200 text-sm w-full focus:outline-none 
+    }
+
     .footer-title{
         @apply text-darkBlue text-xl mb-9 underline font-medium
     }

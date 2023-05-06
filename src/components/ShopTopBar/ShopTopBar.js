@@ -69,10 +69,10 @@ function CetagoryTopBar(props) {
             </div>
             {/* Buttton section */}
             <div className="center-child gap-x-5">
-                <button className={`text-lg text-primary ${props.viewTypeBtn === 'grid' ? 'text-primary-900' : undefined}`} onClick={() => props.pViewHandler('grid')}>
+                <button onClick={() => props.viewHandler('grid')} className={`text-lg hover:text-primary ${props.active === 'grid' ? 'text-primary' : 'text-gray-400'}`}>
                     <BsGrid3X3GapFill />
                 </button>
-                <button className={`text-lg text-primary ${props.viewTypeBtn === 'list' ? 'text-primary-900' : undefined}`} onClick={() => props.pViewHandler('list')}>
+                <button onClick={() => props.viewHandler('list')} className={`text-lg hover:text-primary ${props.active === 'list' ? 'text-primary' : 'text-gray-400'}`}>
                     <FaList />
                 </button>
             </div>
