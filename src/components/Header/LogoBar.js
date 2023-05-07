@@ -25,17 +25,17 @@ function LogoBar(props) {
                                     <AiOutlineHeart className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                 </li>
                                 <li>
-                                    <button onClick={() => props.cartHandler(true)}>
+                                    <button type="button" onClick={() => props.cartHandler(true)}>
                                         <AiOutlineShoppingCart className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                     </button>
                                 </li>
                                 <li className="flex items-center gap-0.5">
                                     <AiOutlineUsergroupAdd className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                     <div className="inline-block">
-                                        <Link href="/">
-                                            <span className="block text-sm">Login</span>
-                                            <span className="block text-sm text-gray-400">Register</span>
-                                        </Link>
+                                        <button type="button" onClick={() => props.LoginBoxHandler(true)} className="block text-sm">
+                                            Login
+                                        </button>
+                                        <Link href='/register' className="block text-sm text-gray-400">Register</Link>
                                     </div>
                                 </li>
                             </ul>
