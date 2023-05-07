@@ -5,6 +5,7 @@ import Link from "next/link"
 // Images 
 import aboutImg from '../../public/images/about-us/about-img.png'
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb"
+import TestimonialCard from "@/components/TestimonialCard/TestimonialCard"
 function about() {
     return (
         <>
@@ -28,6 +29,15 @@ function about() {
                                 Contact Us
                             </Link>
                         </div>
+                    </div>
+                    {/* Testimonial Section */}
+                </div>
+            </section>
+            <section className="py-14 bg-gray-100 mt-14">
+                <div className="container">
+                    <div className="grid grid-cols-2 gap-x-7">
+                        <TestimonialCard />
+                        <TestimonialCard />
                     </div>
                 </div>
             </section>
