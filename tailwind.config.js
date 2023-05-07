@@ -47,6 +47,15 @@ module.exports = {
         "nav": '#fff'
       },
     },
+    keyframes : {
+      "stickyNav" : {
+        "0%" : {top : '-200px'},
+        "100%" : {top : "0"}
+      }
+    },
+    animation : {
+      "stickyNav" : 'stickyNav .7s ease-in'
+    }
   },
   plugins: [
 

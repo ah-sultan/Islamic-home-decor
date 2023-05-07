@@ -62,8 +62,8 @@ function SideCart(props) {
                     </div>
                     {/* Button Section ===============*/}
                     <div className="self-end">
-                        <Link href="/Cart" className="py-2.5 px-15px block text-base leading-relaxed text-white text-center trns-1 bg-black hover:bg-primary-900 mb-3">View Cart</Link>
-                        <Link href="/Checkout" className="py-2.5 px-15px block text-base leading-relaxed text-white text-center trns-1  bg-primary">Check Out</Link>
+                        <Link  onClick={() => props.cartHandler(false)} href="/cart" className="py-2.5 px-15px block text-base leading-relaxed text-white text-center trns-1 bg-black hover:bg-primary-900 mb-3">View Cart</Link>
+                        <Link  onClick={() => props.cartHandler(false)} href="/checkout" className="py-2.5 px-15px block text-base leading-relaxed text-white text-center trns-1  bg-primary">Check Out</Link>
                     </div>
                 </div>
         </div>

@@ -10,9 +10,9 @@ function Breadcrumb(props) {
                         {
                             props.pages.map((title, index) => {
                                 return (
-                                    <li className="text-sm capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]" key={index}>
-                                        <Link href={`/${title}`}>
-                                            {title}
+                                    <li className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]" key={index}>
+                                        <Link href={`${title === '/' ? '/' : `/${title}`}`}>
+                                            {title === '/' ? 'home' : title}
                                         </Link>
                                     </li>
                                 )
