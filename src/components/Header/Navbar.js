@@ -7,7 +7,7 @@ function Navbar() {
 
     return (
         <>
-            <div className={`bg-primary`}>
+            <div className={`bg-primary hidden md:block`}>
                 <div className="container">
                     <div className="flex items-center">
                         <div className="lg:w-3/12">

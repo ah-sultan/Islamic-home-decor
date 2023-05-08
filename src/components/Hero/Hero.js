@@ -18,13 +18,13 @@ function Hero() {
                 <div className="container">
                     <div className="flex gap-x-px">
                         {/* Side Navbar */}
-                        <div className="w-3/12">
+                        <div className="hidden lg:block lg:w-3/12">
                             <div className="bg-white border border-gray-200 h-full">
                                 <SideNav />
                             </div>
                         </div>
                         {/* Image Section */}
-                        <div className="w-9/12">
+                        <div className="w-full lg:w-9/12">
                             <div className="flex flex-wrap">
                                 <div className="w-7/12">
                                     <Image src={heroImg1} alt="hero Image" className="max-full" />

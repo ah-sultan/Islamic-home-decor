@@ -4,6 +4,7 @@ import LogoBar from "./LogoBar"
 import Navbar from "./Navbar"
 import TopBar from "./TopBar"
 import LoginBox from "../LoginBox/LoginBox"
+import MobileNav from "./MobileNav/MobileNav"
 
 function Header() {
     const [showCart, setShowCart] = useState(false)
@@ -18,7 +19,7 @@ function Header() {
     }
     return (
         <>
-            <header >
+            <header className="border-b-2 border-gray-400 md:border-0">
                 <div>
                     <TopBar />
                     <LogoBar cartHandler={cartHandler} LoginBoxHandler={loginBoxHandler} />
@@ -26,6 +27,10 @@ function Header() {
                 </div>
                 <SideCart showCart={showCart} cartHandler={cartHandler} />
                 <LoginBox showLoginBox={showLoginBox} LoginBoxHandler={loginBoxHandler} />
+                {/* Mobile Nav */}
+                <div className="md:hidden">
+                    <MobileNav cartHandler={cartHandler} LoginBoxHandler={loginBoxHandler}/>
+                </div>
             </header>
         </>
     )

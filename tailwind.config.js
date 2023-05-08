@@ -14,9 +14,6 @@ module.exports = {
     },
 
     screens: {
-      'xsm': '480px',
-      // => @media (min-width: 640px) { ... }
-
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -51,10 +48,18 @@ module.exports = {
       "stickyNav" : {
         "0%" : {top : '-200px'},
         "100%" : {top : "0"}
+      },
+      "heightPlus" : { 
+        "0" : {height : 0},
+        "100%" : {height : 'auto'}
+      },
+      "heightMinas" : { 
+        "0" : {height :"auto",},
+        "100%" : {height : 0}
       }
     },
     animation : {
-      "stickyNav" : 'stickyNav .7s ease-in'
+      "stickyNav" : 'stickyNav .7s ease-in',
     }
   },
   plugins: [

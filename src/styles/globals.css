@@ -14,7 +14,7 @@
 
     .navbarSticky{
         @apply fixed top-0 w-full shadow-lg trns-1 border-b-2 border-gray-400 !py-1 animate-stickyNav;
-        z-index: 102;
+        z-index: 80;
     }
 
 
@@ -54,3 +54,6 @@
         -o-transition: all .3s ease-in-out;
 }
 }
+
+
+.showNav{}
