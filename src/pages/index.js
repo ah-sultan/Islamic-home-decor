@@ -3,10 +3,12 @@ import Hero from "@/components/Hero/Hero"
 import MainProduct from "@/components/MainProduct/MainProduct"
 import Meta from "@/components/Meta"
 import BannerImg from "@/components/BannerImg/BannerImg"
+import HomeProduct from "@/components/HomeProduct/HomeProduct"
+import QuickView from "@/components/QuickView"
 
 // images ===========
 import bannerImg from '../../public/images/banner-img/banner-img.jpg'
-import HomeProduct from "@/components/HomeProduct/HomeProduct"
+
 
 export default function Home({ product }) {
   return (
@@ -14,9 +16,9 @@ export default function Home({ product }) {
       <Meta />
       <Hero />
       <BestDeals product={product} />
-      <MainProduct product={product}/>
-      <BannerImg img={bannerImg}/>
-      <HomeProduct product={product}/>
+      <MainProduct product={product} />
+      <BannerImg img={bannerImg} />
+      <HomeProduct product={product} />
 
     </>
   )

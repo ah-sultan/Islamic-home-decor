@@ -1,14 +1,26 @@
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+
 import Link from "next/link"
 import { AiFillEye, AiOutlineHeart, AiOutlineBarChart } from 'react-icons/ai'
 
 import { AiFillStar } from 'react-icons/ai'
+import QuickView from "../QuickView"
 
 
 function ProductCard(props) {
+    const [showModal, setShowModal] = useState(false)
     const rate = Math.floor(props.rating.rate)
     const discount = 10
     const totalDiscount = props.price - discount / 10
+    const ref = useRef(null);
+
+
+    useEffect(() => {
+        ref.current?.OpenModal()
+    })
+
+    ref.current?.OpenModal(ModalAnimation.Reveal)
 
 
     return (
@@ -18,7 +30,7 @@ function ProductCard(props) {
                     <Image src={props.img} alt="product-image" width={270} height={150} className="max-h-full" />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
                     <div className="group-hover/bar:translate-y-0 trns-1 w-full center-child gap-x-3 translate-y-14 py-1 border-t-2 bg-white border-primary absolute bottom-0 left-0 right-0">
-                        <button className="w-6 h-6 rounded-full center-child text-gray-400 hover:bg-primary hover:text-white">
+                        <button onClick={() => setShowModal(true)} className="w-6 h-6 rounded-full center-child text-gray-400 hover:bg-primary hover:text-white">
                             <AiFillEye />
                         </button>
                         <button className="w-6 h-6 rounded-full center-child text-gray-400 hover:bg-primary hover:text-white">
@@ -59,6 +71,10 @@ function ProductCard(props) {
                     </div>
                 </div>
             </div>
+            {
+                showModal ? <QuickView product={props} /> : null
+            }
+
         </>
     )
 }
