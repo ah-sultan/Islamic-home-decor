@@ -11,7 +11,7 @@ function SideSubMenu(props) {
 
     console.log(isTrue)
     return (
-        <div className={`md:w-[270px] bg-white md:shadow-md md:absolute top-7 md:invisible md:opacity-0 trns-1 left-full md:border border-gray-100 px-4 group-hover:top-0 group-hover:visible origin-top group-hover:opacity-100  trns-1 ${isTrue? 'block' : 'hidden md:block'}`}>
+        <div className={`lg:w-[270px] bg-white lg:shadow-md lg:absolute top-7 lg:invisible lg:opacity-0 trns-1 left-full lg:border border-gray-100  origin-top px-4 group-hover:top-0 group-hover:visible  group-hover:opacity-100  trns-1 ${isTrue ? 'block' : 'hidden lg:block'}`}>
             <ul>
                 {
                     props.subMenudata.map((list, index) => (

@@ -11,14 +11,14 @@ function LoginBox(props) {
 
             <div>
                 <ModalOverlay showModalOverlay={props.showLoginBox} />
-                <div className={`w-[400px] fixed left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-50 trns-1 duration-500 ${props.showLoginBox ? 'top-1/2 visible opacity-100' : 'top-0 invisible opacity-0'}`}>
-                    <div className="bg-primary px-8 py-3.5 flex justify-between items-center">
+                <div className={` w-[320px] md:w-[400px] fixed left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-50 trns-1 duration-500 ${props.showLoginBox ? 'top-1/2 visible opacity-100' : 'top-0 invisible opacity-0'}`}>
+                    <div className="bg-primary px-5 md:px-8 py-3.5 flex justify-between items-center">
                         <h6 className="text-white text-xl">Login</h6>
                         <button type="button" onClick={() => props.LoginBoxHandler(false)}>
                             <AiOutlineClose className="text-white text-2xl" />
                         </button>
                     </div>
-                    <div className="px-8 py-10">
+                    <div className="px-5 md:px-8 py-7 md:py-10">
                         <div>
                             <input type="Email" placeholder="Email" className="form-input mb-5" />
                             <input type="password" placeholder="Password" className="form-input" />

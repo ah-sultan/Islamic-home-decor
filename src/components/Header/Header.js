@@ -28,8 +28,8 @@ function Header() {
                 <SideCart showCart={showCart} cartHandler={cartHandler} />
                 <LoginBox showLoginBox={showLoginBox} LoginBoxHandler={loginBoxHandler} />
                 {/* Mobile Nav */}
-                <div className="md:hidden">
-                    <MobileNav cartHandler={cartHandler} LoginBoxHandler={loginBoxHandler}/>
+                <div className="lg:hidden">
+                    <MobileNav cartHandler={cartHandler} LoginBoxHandler={loginBoxHandler} />
                 </div>
             </header>
         </>
