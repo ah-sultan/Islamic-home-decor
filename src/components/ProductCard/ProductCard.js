@@ -1,27 +1,26 @@
 import Image from "next/image"
-import { useEffect, useState, createContext } from "react"
-
-export const QuickViewContext = createContext()
-
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { AiFillEye, AiOutlineHeart, AiOutlineBarChart } from 'react-icons/ai'
 
+import { AiFillEye, AiOutlineHeart, AiOutlineBarChart } from 'react-icons/ai'
 import { AiFillStar } from 'react-icons/ai'
-import QuickView from "../QuickView/QuickView"
+
+// Redux Features
+import { useDispatch } from "react-redux"
+import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 
 function ProductCard(props) {
-    const [quickView, setQuickView] = useState(false)
     const rate = Math.floor(props.rating.rate)
     const discount = 10
     const totalDiscount = props.price - discount / 10
 
-    function setQuickViewHandler(value){
-        setQuickView(value)
-    }
+    // Quick view Handler
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
-        if(quickView){
+        if(false){
             document.body.style.overflow = 'hidden'
         }else{
             document.body.style.overflow = 'unset'
@@ -35,7 +34,7 @@ function ProductCard(props) {
                     <Image src={props.img} alt="product-image" width={270} height={150} className="max-h-full" />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
                     <div className="group-hover/bar:translate-y-0 trns-1 w-full center-child gap-x-3 translate-y-14 py-1 border-t-2 bg-white border-primary absolute bottom-0 left-0 right-0">
-                        <button onClick={() => setQuickViewHandler(true)} className="w-8 h-8 rounded-full center-child text-xl text-gray-400 hover:bg-primary hover:text-white">
+                        <button onClick={() => dispatch(showQuickView(props))} className="w-8 h-8 rounded-full center-child text-xl text-gray-400 hover:bg-primary hover:text-white">
                             <AiFillEye />
                         </button>
                         <button className="w-8 h-8 rounded-full center-child text-xl text-gray-400 hover:bg-primary hover:text-white">
@@ -76,9 +75,6 @@ function ProductCard(props) {
                     </div>
                 </div>
             </div>
-            <QuickViewContext.Provider value={'user'}>
-                {/* <QuickView product={props} showModal={quickView} setQuickViewHandler={setQuickViewHandler}/> */}
-            </QuickViewContext.Provider>
         </>
     )
 }

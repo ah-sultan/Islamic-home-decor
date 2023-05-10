@@ -2,6 +2,10 @@ import { Poppins, Noto_Serif } from 'next/font/google'
 import '@/styles/globals.css'
 import Layout from '@/components/Layout'
 
+// Redux Feature
+import { Provider } from 'react-redux';
+import store from '@/feature/store';
+
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
@@ -11,10 +15,11 @@ const poppins = Poppins({
 export default function App({ Component, pageProps }) {
   return (
     <div className={`${poppins.variable} font-sans`}>
-      <Layout>
-
-        <Component {...pageProps} />
-      </Layout>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+          </Layout>
+      </Provider>
     </div>
   )
 }

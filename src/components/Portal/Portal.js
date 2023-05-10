@@ -1,17 +1,17 @@
-import { useState, createContext, useContext } from "react";
-import { QuickViewContext } from "../ProductCard/ProductCard";
+
 import QuickView from "../QuickView/QuickView"
 
 
+// Redux Features
+import { useSelector} from 'react-redux';
+
 
 function Portal() {
-    const QuickViewContextData = useContext(QuickViewContext)
-    console.log(QuickViewContextData)
-
+    const productData = useSelector((state) => state.quickView.data);
+    console.log(productData)
   return (
     <>
         {/* <QuickView product={QuickViewContextData}/> */}
-        <h1>{QuickViewContextData}</h1>
     </>
   )
 }
