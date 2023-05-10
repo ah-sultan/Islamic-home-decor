@@ -92,12 +92,12 @@ function Checkout() {
                             {/* Ordere Information card ======= */}
                             <div className="w-full sm:w-[480px] lg:w-5/12 mt-7 xl:mt-0">
                                 <h4 className="text-2xl font-semibold text-black mb-7">Your order</h4>
-                                <div className="px-9 py-11 bg-gray-200">
-                                    <ul className="flex justify-between mb-7">
-                                        <li className="text-base leading-relaxed text-black font-semibold">Product</li>
-                                        <li className="text-base leading-relaxed text-black font-semibold">total</li>
+                                <div className="p-5 sm:px-9 sm:py-11 bg-gray-200">
+                                    <ul className="flex justify-between mb-5 sm:mb-7 border-b border-b-gray-300">
+                                        <li className="text-base leading-relaxed text-black font-semibold">Product Name</li>
+                                        <li className="text-base leading-relaxed text-black font-semibold">Price</li>
                                     </ul>
-                                    <div className="pt-7 pb-5 border-y border-gray-200 ">
+                                    <div className="py-3 sm:pt-7 sm:pb-5 border-y border-gray-200 ">
                                         <ul className="flex justify-between mb-2.5">
                                             <li className="text-dark-700 text-base leading-relaxed">Product Name X 1</li>
                                             <li className="text-dark-700 text-base leading-relaxed">$100</li>
@@ -107,24 +107,24 @@ function Checkout() {
                                             <li className="text-gray-800 text-base leading-relaxed">$100</li>
                                         </ul>
                                     </div>
-                                    <ul className="flex justify-between mt-7 mb-4">
+                                    <ul className="flex justify-between mt-4 sm:mt-7 mb-2 sm:mb-4 border-b">
                                         <li className="text-black font-semibold text-base leading-relaxed">Shipping</li>
                                         <li className="text-gray-800 text-base leading-relaxed">$100</li>
                                     </ul>
-                                    <div className="py-4 border-y border-gray-200 ">
+                                    <div className="py-2 sm:py-3 border-y border-gray-200 border-t border-t-gray-500">
                                         <ul className="flex justify-between ">
-                                            <li className="text-black font-semibold text-base leading-relaxed">Total</li>
+                                            <li className="text-black font-semibold text-base leading-relaxed">Total:</li>
                                             <li className="text-primary font-semibold leading-relaxed">$100</li>
                                         </ul>
                                     </div>
                                     {/* Pyments System */}
-                                    <ul className="mt-9">
+                                    <ul className="mt-4 sm:mt-9">
                                         {
                                             accor.map((items, index) => {
                                                 return(
-                                                    <li key={index} className="mb-3">
+                                                    <li key={index} className="mb-2 sm:mb-3">
                                                         <input type="radio" id={items.title} name="payments"/>
-                                                        <label htmlFor={items.payments} className="text-base mb-1 inline-block pl-2">{items.title}</label>
+                                                        <label htmlFor={items.payments} className="text-base inline-block pl-2">{items.title}</label>
                                                         
                                                     </li>
                                                 )

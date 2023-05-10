@@ -3,6 +3,7 @@ import img1 from '../../../public/images/cart/cartImg.jpg'
 import Overlay from '../Overlay/Overlay'
 import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 function SiteCartCard(props){
     return(
@@ -28,7 +29,6 @@ function SiteCartCard(props){
 
 
 function SideCart(props) {
-
     const showCart = props.showCart
      const cartItems = 7
 

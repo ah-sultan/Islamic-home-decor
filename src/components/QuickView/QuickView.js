@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useState, useEffect } from 'react';
-
 import { FaStar, FaRegHeart, FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
 
 // Swiper JS  
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,7 +19,14 @@ function QuickView(props) {
         if (count <= 0) {
             setCount(0)
         }
+
+        
     })
+
+    function quickViewHander(){
+        props.setQuickViewHandler(false)
+        
+    }
 
     const product = props.product
     const images = Array(5).fill(product.img)
@@ -28,15 +35,15 @@ function QuickView(props) {
     const discountprice = product.price - discount / 10
 
     return (
-        <div className="fixed left-0 right-0 top-0 bottom-0 z-[120] bg-[rgba(0,0,0,.9)]">
-            <div className="absolute bg-slate-900 left-0 right-0 bottom-0 top">
+        <div className="fixed left-0 right-0 top-0 bottom-0 z-[120] bg-[rgba(0,0,0,.9)] animate-popup">
+            <div onClick={quickViewHander} className="absolute bg-transparent w-full h-full z-[-1] left-0 right-0 bottom-0 top">
 
             </div>
-            <div className="container center-child h-full">
-                <div className="bg-white w-10/12 mx-auto p-8">
+            <div className="w-full lg:container lg:center-child h-full overflow-scroll py-10 sm:py-20 lg:py-0">
+                <div className="bg-white w-11/12 sm:w-10/12 mx-auto p-6 md:p-8">
                     <div className="flex flex-col lg:flex lg:flex-row gap-y-7 gap-x-8 items-start">
                         {/* Images Section */}
-                        <div className="lg:w-5/12">
+                        <div className="w-full lg:w-5/12">
                             <div className="border">
                                 {/* Main Image Section */}
                                 <Swiper
@@ -62,17 +69,21 @@ function QuickView(props) {
                                 <Swiper
                                     onSwiper={setThumbsSwiper}
                                     spaceBetween={10}
-                                    slidesPerView={5}
+                                    slidesPerView={3}
                                     freeMode={true}
                                     watchSlidesProgress={true}
                                     modules={[FreeMode, Navigation, Thumbs]}
                                     className="mySwiper"
 
+                                    breakpoints={{
+                                        640 : {slidesPerView : 4},
+                                    }}
+
                                 >
                                     {
                                         images.map((image, index) =>
                                             <SwiperSlide key={index}>
-                                                <div className="p-4 border">
+                                                <div className="p-4 border mx-0.5">
                                                     <Image src={image} alt="img-1" width={500} height={600} className="w-full" />
                                                 </div>
                                             </SwiperSlide>
@@ -82,7 +93,13 @@ function QuickView(props) {
                             </div>
                         </div>
                         {/* Text Section  */}
-                        <div className="lg:w-7/12">
+                        <div className="w-full lg:w-7/12">
+                            {/* Popup Close Button ================= */}
+                            <div className="text-right mb-4">
+                                    <button onClick={quickViewHander} type="button" className="text-2xl">
+                                        <AiOutlineClose/>
+                                    </button>
+                            </div>
                             <h4 className="text-xl leading-normal font-medium text-black mb-3">{product.title}</h4>
                             <h6 className="text-primary text-lg leading-relaxed mb-2">${product.price} <span className="text-gray-500"><del>${discountprice}</del></span></h6>
                             {/* Reviews Section */}
@@ -123,11 +140,11 @@ function QuickView(props) {
                             </div>
 
                             {/* Drescription section */}
-                            <p className="text-sm leading-relaxed text-gray-600 font-normal mb-4">{product.description.substring(0,300)} ...</p>
+                            <p className="text-sm leading-relaxed text-gray-600 font-normal mb-4 line-clamp-4">{product.description}</p>
 
                             {/* Button Section */}
                             <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
-                                <div className="w-18 md:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
+                                <div className="w-20 md:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
                                     <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count - 1)}>-</button>
                                     <input type="text" value={count <= 0 ? '0' : count} onChange={(e) => setCount(e.target.value)} className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2" />
                                     <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count + 1)}>+</button>
@@ -137,7 +154,7 @@ function QuickView(props) {
                             </div>
 
                             {/* info section */}
-                            <p className="text-base leading-relaxed text-tGreay-200 font-semibold">SKU <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.sku}</span></p>
+                            <p className="text-base leading-relaxed text-tGreay-200 font-semibold">SKU: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.sku}</span></p>
                             <p className="text-base leading-relaxed text-tGreay-200 font-semibold my-2.5">Categories: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.category}</span></p>
 
                             {/* Share */}

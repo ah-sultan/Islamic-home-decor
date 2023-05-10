@@ -2,17 +2,12 @@ export const footerNavInformation = [
     {
         id: 0,
         title : 'Terms & Conditions',
-        url : '/termsConditions'
+        url : '/terms'
     },
     {
         id: 1,
         title : 'Return Policy',
-        url : 'returnPolicy'
-    },
-    {
-        id: 2,
-        title : 'Refund Policy',
-        url : '/Refund Policy'
+        url : '/refund'
     },
     {
         id: 3,

@@ -1,8 +1,11 @@
 import Link from "next/link"
+
 import { FaFacebookF, FaGoogle } from 'react-icons/fa'
-import { FiRefreshCcw } from 'react-icons/fi'
+import Captcha from "@/components/Captcha/Captcha";
+
 
 function register() {
+
     return (
         <section className="py-20 bg-gray-100">
             <div className="container">
@@ -86,15 +89,9 @@ function register() {
                                     <input id="captcha" type="password" className="form-input" required/>
                                 </div>
                                 <div className="mt-4 flex items-center">
-                                    <div className="w-[170px] border h-14 mr-5 p-3">
-
-                                    </div>
-                                    <button type="button" className="h-12 w-12 border border-accent rounded-full center-child">
-                                        <FiRefreshCcw className="text-xl text-gray-400" />
-                                    </button>
+                                    <Captcha/>
                                 </div>
                             </div>
-
                             <button type="submit" className="bg-accent py-3 w-full block text-center mt-5">Create An Account</button>
                         </form>
                     </div>
