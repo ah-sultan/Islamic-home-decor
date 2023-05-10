@@ -9,7 +9,7 @@ import RecentView from "@/components/RecentView/RecentView"
 function cetagory({ product }) {
     return (
         <>
-            <Meta />
+            <Meta title={`YouTube Studio Gears`}/>
             <Breadcrumb pages={['home', 'cetagory']} />
             <CetagoryTitle title="YouTube Studio Gears" description="YouTube Studio Gears Price in Bangladesh. BDSHOP.COM Offers you the Worl'ds Famous Microphone for Your Daily or Professional Needs." />
             <ShopProducts products={product} />

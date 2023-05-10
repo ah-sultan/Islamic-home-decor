@@ -32,14 +32,14 @@ function ProductReview() {
     const getRate = rate
     return (
         <>
-            <div className="flex gap-x-10">
+            <div className="flex flex-col lg:flex-row gap-x-10">
                 {/* Reviews Section */}
-                <div className="w-8/12">
-                    <h6 className="text-xl mb-8 flex items-center justify-between border-b pb-5">
+                <div className="w-full lg:w-7/12 xl:w-8/12 order-last lg:order-first ">
+                    <h6 className="text-xl flex-wrap lg:mb-8 flex items-center justify-between border-b pb-5">
                         <span>Customer Reviews:</span>
                         <span className="text-primary text-lg">Total Reviews: 5</span>
                     </h6>
-                    <div className="border-b pb-8 bg-gray-50 p-5 mb-7">
+                    <div className="border-b pb-8 bg-gray-100 p-5 mb-7">
                         <div>
                             <ReviewCard />
                         </div>
@@ -50,7 +50,7 @@ function ProductReview() {
                 </div>
 
                 {/* Give Reviews */}
-                <div className="w-4/12">
+                <div className="w-full lg:w-5/12 xl:w-4/12 mb-20 lg:mb-0">
                     <h6 className="text-xl mb-5">Give Your Review :</h6>
                     <form action="#">
                         <div>

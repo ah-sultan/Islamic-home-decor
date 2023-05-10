@@ -1,22 +1,17 @@
-import React, { memo } from 'react'
-import Link from 'next/link'
-import ModalOverlay from '../ModalOverlay/ModalOverlay'
-import { AiOutlineClose } from 'react-icons/ai'
+import Breadcrumb from "@/components/Breadcrumb/Breadcrumb"
+import Link from "next/link"
 import { FaFacebookF, FaGoogle } from 'react-icons/fa'
+import { FiRefreshCcw } from 'react-icons/fi'
 
-
-function LoginBox(props) {
+function login() {
     return (
-        <>
-
-            <div>
-                <ModalOverlay showModalOverlay={props.showLoginBox} />
-                <div className={` w-[320px] md:w-[400px] fixed left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-50 trns-1 duration-500 ${props.showLoginBox ? 'top-1/2 visible opacity-100' : 'top-0 invisible opacity-0'}`}>
-                    <div className="bg-primary px-5 md:px-8 py-3.5 flex justify-between items-center">
+        <>  
+        <Breadcrumb pages={['/', 'login']}/>
+            <section className="py-20 bg-gray-100">
+            <div className="container">
+            <div className="w-full md:w-[600px] bg-white mx-auto shadow-md ">
+                    <div className="bg-gray-800 px-5 md:px-8 py-3.5 flex justify-between items-center">
                         <h6 className="text-white text-xl">Login</h6>
-                        <button type="button" onClick={() => props.LoginBoxHandler(false)}>
-                            <AiOutlineClose className="text-white text-2xl" />
-                        </button>
                     </div>
                     <div className="px-5 md:px-8 py-7 md:py-10">
                         <div>
@@ -24,7 +19,7 @@ function LoginBox(props) {
                             <input type="password" placeholder="Password" className="form-input" />
                             <button type="submit" className="bg-accent py-3 text-center w-full mt-6">Login</button>
                         </div>
-                        <div className="text-right pt-2 pb-6">
+                        <div className="text-right pt-4 pb-8">
                             <Link href="#" className="text-sm text-blue-500 underline"> Forgot Password</Link>
                         </div>
                         <div className='text-center pt-1 pb-2'>
@@ -35,7 +30,7 @@ function LoginBox(props) {
                             <span className="inline-block px-3 text-xl leading-none">OR</span>
                             <span className="block w-full h-px bg-gray-200"></span>
                         </div>
-                        {/* Social Media login*/}
+                        {/* Social Media */}
                         <div>
                             <div className="mt-5">
                                 <Link href="/" className="flex items-center rounded-sm overflow-hidden">
@@ -61,8 +56,9 @@ function LoginBox(props) {
                     </div>
                 </div>
             </div>
+        </section>
         </>
     )
 }
 
-export default LoginBox
+export default login

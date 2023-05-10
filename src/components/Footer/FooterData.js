@@ -1,13 +1,13 @@
-export const footerNav = [
+export const footerNavInformation = [
     {
         id: 0,
         title : 'Terms & Conditions',
-        url : '/Terms & Conditions'
+        url : '/termsConditions'
     },
     {
         id: 1,
         title : 'Return Policy',
-        url : '/Return Policy'
+        url : 'returnPolicy'
     },
     {
         id: 2,
@@ -17,18 +17,64 @@ export const footerNav = [
     {
         id: 3,
         title : 'After-Sale Support',
-        url : '/After-Sale Support'
+        url : '/support'
     },
     {
         id: 4,
         title : 'Replacement Warranty',
-        url : '/Terms & Conditions'
+        url : '/waranty'
     },
     {
         id: 5,
         title : 'Privacy Policy',
-        url : '/Terms & Conditions'
+        url : '/privacy'
     },
     
     
 ]
+
+
+export const footerNavCompany = [
+    {
+        id: 0,
+        title : 'About Us',
+        url : '/about'
+    },
+    {
+        id: 1,
+        title : 'contact',
+        url : '/contact'
+    },
+    {
+        id: 2,
+        title : 'Faq',
+        url : '/faq'
+    }    
+    
+]
+
+export const footerNavshop = [
+    {
+        id: 0,
+        title : 'cart',
+        url : '/cart'
+    },
+    {
+        id: 1,
+        title : 'Checkout',
+        url : 'checkout'
+    },
+    {
+        id: 2,
+        title : 'login',
+        url : '/login'
+    },
+    
+    {
+        id: 2,
+        title : 'register',
+        url : '/register'
+    }  
+    
+]
+

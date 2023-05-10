@@ -9,7 +9,6 @@ function SideSubMenu(props) {
         setIsTrue(props.showSubNav)
     })
 
-    console.log(isTrue)
     return (
         <div className={`lg:w-[270px] bg-white lg:shadow-md lg:absolute top-7 lg:invisible lg:opacity-0 trns-1 left-full lg:border border-gray-100  origin-top px-4 group-hover:top-0 group-hover:visible  group-hover:opacity-100  trns-1 ${isTrue ? 'block' : 'hidden lg:block'}`}>
             <ul>

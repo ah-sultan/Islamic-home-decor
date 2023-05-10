@@ -27,13 +27,13 @@ function BestDeals(props) {
             <section className="pt-8">
                 <div className="container">
                     <div className="border bg-white shadow-sm">
-                        <div className="flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
-                            <div className="flex items-center">
-                                <h2 className="section-title mr-16">Deals Of The Day</h2>
+                        <div className="sm:flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
+                            <div className="flex flex-col md:flex-row md:items-center">
+                                <h2 className="section-title pr-16">Deals Of The Day</h2>
                                 {/* Countdown Section */}
-                                <div className="flex items-center">
+                                <div className="flex items-center mt-5 md:mt-0">
                                     <span>Ends after: </span>
-                                    <div className="bg-primary inline-flex ml-1 text-white">
+                                    <div className="bg-primary inline-flex ml-3 text-white">
                                         <div className="w-[50px] text-white center-child">
                                             <span>07</span>h
                                         </div> :
@@ -46,24 +46,50 @@ function BestDeals(props) {
                                     </div>
                                 </div>
                             </div>
-                            <button className="text-black">
+                            <div className="text-black text-right mt-3 sm:mt-0">
                                 <Link href="/about">
                                     View All
                                 </Link>
-                            </button>
+                            </div>
                         </div>
 
                         {/* Card Section */}
                         <div className="mt-8 p-5 pt-0 group-btn relative">
                             <Swiper
-                                slidesPerView={4}
-                                spaceBetween={24}
+                                slidesPerView={1}
+                                spaceBetween={18}
                                 pagination={pagination}
                                 modules={[Pagination, Navigation]}
                                 className="testimoniaSwiper"
                                 navigation = {{
                                         nextEl: '.nextSlide',
                                         prevEl: '.prevSlide',
+                                }}
+
+                                breakpoints={{
+
+                                    460 : {
+                                        slidesPerView : 2,
+                                        spaceBetween : 18,
+                                    },
+
+
+                                    768 : {
+                                        slidesPerView : 3,
+                                        spaceBetween : 24,
+                                    },
+
+                                    1024 : {
+                                        slidesPerView : 4,
+                                        spaceBetween : 24,
+                                    },
+
+                                    1200 : {
+                                        slidesPerView : 5,
+                                        spaceBetween : 24,
+                                    }
+
+
                                 }}
                             >
                                 {
@@ -84,7 +110,7 @@ function BestDeals(props) {
                                 <BsChevronRight className="text-xl"/>
                             </button>
 
-                            <div className="flex justify-center gap-x-3 bestDealsDots mt-6 mb-8 ">
+                            <div className="flex justify-center gap-x-2 bestDealsDots mt-7 mb-8 ">
                                     
                             </div>
                         </div>

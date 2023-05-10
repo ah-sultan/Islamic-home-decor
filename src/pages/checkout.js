@@ -27,7 +27,7 @@ function Checkout() {
         <>
             <section>
                 <Meta title="Checkout"/>
-                <Breadcrumb pages={['/', 'checlout']} />
+                <Breadcrumb pages={['/', 'Checkout']} />
                 <div className="container">
                     <div className="py-16 lg:py-20 xl:py-20">
                         <div className="flex flex-col lg:flex-row gap-x-8">
@@ -40,7 +40,7 @@ function Checkout() {
                                                 <label htmlFor="fName" className="block text-base text-dark-700 mb-2.5">First Name</label>
                                                 <input type="text" id="fName" className="form-input" />
                                             </div>
-                                            <div className="w-full md:w-1/2">
+                                            <div className="w-full md:w-1/2 mt-6 md:mt-0">
                                                 <label htmlFor="lName" className="block text-base text-dark-700 mb-2.5">Last Name</label>
                                                 <input type="text" id="lName" className="form-input" />
                                             </div>
@@ -66,7 +66,7 @@ function Checkout() {
                                                 <label htmlFor="stateCounty" className="block text-base text-dark-700 mb-2.5">State / County</label>
                                                 <input type="text" id="stateCounty" className="form-input" />
                                             </div>
-                                            <div className="w-full md:w-1/2">
+                                            <div className="w-full md:w-1/2 mt-6 md:mt-0">
                                                 <label htmlFor="postCodeZIp" className="block text-base text-dark-700 mb-2.5">Postcode / ZIP</label>
                                                 <input type="text" id="postCodeZIp" className="form-input" />
                                             </div>
@@ -76,7 +76,7 @@ function Checkout() {
                                                 <label htmlFor="phone" className="block text-base text-dark-700 mb-2.5">Phone</label>
                                                 <input type="text" id="phone" className="form-input" />
                                             </div>
-                                            <div className="w-full md:w-1/2">
+                                            <div className="w-full md:w-1/2 mt-6 md:mt-0">
                                                 <label htmlFor="email" className="block text-base text-dark-700 mb-2.5">Email Address</label>
                                                 <input type="email" id="email" className="form-input" />
                                             </div>
@@ -89,9 +89,10 @@ function Checkout() {
                                     </form>
                                 </div>
                             </div>
-                            <div className="w-full lg:w-5/12 mt-7 xl:mt-0">
+                            {/* Ordere Information card ======= */}
+                            <div className="w-full sm:w-[480px] lg:w-5/12 mt-7 xl:mt-0">
                                 <h4 className="text-2xl font-semibold text-black mb-7">Your order</h4>
-                                <div className="px-9 py-11 bg-gray-100">
+                                <div className="px-9 py-11 bg-gray-200">
                                     <ul className="flex justify-between mb-7">
                                         <li className="text-base leading-relaxed text-black font-semibold">Product</li>
                                         <li className="text-base leading-relaxed text-black font-semibold">total</li>
@@ -116,7 +117,7 @@ function Checkout() {
                                             <li className="text-primary font-semibold leading-relaxed">$100</li>
                                         </ul>
                                     </div>
-                                    {/* Accordion Section */}
+                                    {/* Pyments System */}
                                     <ul className="mt-9">
                                         {
                                             accor.map((items, index) => {

@@ -19,11 +19,11 @@ function HomeProduct(props) {
 
                     {/* Card section */}
                     <div className="mt-8 p-5 pt-0 group-btn relative">
-                        <div className="grid grid-cols-4 gap-x-6 gap-y-7">
+                        <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
                             {
                                 products.map((data, index) => {
                                     return (
-                                        <ProductCard key={index} img={data.image} title={data.title} rating={data.rating} price={data.price} />
+                                        <ProductCard key={index} img={data.image} title={data.title} rating={data.rating} price={data.price} description={data.description}/>
 
                                     )
                                 })

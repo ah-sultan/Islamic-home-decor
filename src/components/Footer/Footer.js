@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { FaFacebookF, FaLinkedinIn, FaInstagram, FaTwitter } from 'react-icons/fa'
-import { footerNav } from "./FooterData"
+import { footerNavInformation,footerNavCompany,footerNavshop } from "./FooterData"
 import Copyright from "./Copyright"
 
 function Footer() {
@@ -8,8 +8,8 @@ function Footer() {
         <>
             <section className="py-12 mt-10">
                 <div className="container">
-                    <div className="flex">
-                        <div className="w-4/12">
+                    <div className="flex flex-wrap">
+                        <div className="w-81/2 lg:w-4/12">
                             <h6 className="footer-title">Contact US</h6>
                             <div>
                                 <span className="tex-sm text-gray-400">Call us 9am-11pm (Everyday)</span>
@@ -36,13 +36,13 @@ function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-8/12 pl-10">
-                            <div className="grid grid-cols-3 gap-x-8">
-                                <div>
+                        <div className="w-full lg:w-8/12 lg:pl-6 xl:pl-10">
+                            <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-x-8">
+                                <div className="mt-10 lg:mt-0">
                                     <h6 className="footer-title">Information</h6>
                                     <ul>
                                         {
-                                            footerNav.map((list, index) => {
+                                            footerNavInformation.map((list, index) => {
                                                 return (
                                                     <li className="py-0.5" key={index}>
                                                         <Link href={list.url}>
@@ -54,11 +54,11 @@ function Footer() {
                                         }
                                     </ul>
                                 </div>
-                                <div>
-                                    <h6 className="footer-title">Information</h6>
+                                <div className="mt-10 lg:mt-0">
+                                    <h6 className="footer-title">Company</h6>
                                     <ul>
                                         {
-                                            footerNav.map((list, index) => {
+                                            footerNavCompany.map((list, index) => {
                                                 return (
                                                     <li className="py-0.5" key={index}>
                                                         <Link href={list.url}>
@@ -70,11 +70,11 @@ function Footer() {
                                         }
                                     </ul>
                                 </div>
-                                <div>
-                                    <h6 className="footer-title">Information</h6>
+                                <div className="mt-10 lg:mt-0">
+                                    <h6 className="footer-title">Shop</h6>
                                     <ul>
                                         {
-                                            footerNav.map((list, index) => {
+                                            footerNavshop.map((list, index) => {
                                                 return (
                                                     <li className="py-0.5" key={index}>
                                                         <Link href={list.url}>

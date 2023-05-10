@@ -33,7 +33,7 @@ function ProductDetailsCard(props) {
         <div>
             <div className="flex flex-col lg:flex lg:flex-row gap-y-7 gap-x-8 items-start">
                 {/* Images Section */}
-                <div className="lg:w-6/12">
+                <div className="w-full sm:w-[600px] mx-auto lg:w-6/12">
                     <div className="border">
                         {/* Main Image Section */}
                         <Swiper
@@ -55,21 +55,34 @@ function ProductDetailsCard(props) {
                         </Swiper>
                     </div>
                     {/* Thumb Images */}
-                    <div className="mt-6">
+                    <div className="mt-3 sm:mt-6">
                         <Swiper
                             onSwiper={setThumbsSwiper}
                             spaceBetween={10}
-                            slidesPerView={5}
+                            slidesPerView={3}
                             freeMode={true}
                             watchSlidesProgress={true}
                             modules={[FreeMode, Navigation, Thumbs]}
                             className="mySwiper"
 
+                            breakpoints={{
+                                520 : {
+                                    slidesPerView : 4,
+                                },
+                                640 : {
+                                    slidesPerView : 4,
+                                },
+
+                                768 :{
+                                    slidesPerView : 5
+                                }
+                            }}
+
                         >
                             {
                                 images.map((image, index) =>
                                     <SwiperSlide key={index}>
-                                        <div className="p-4 border">
+                                        <div className="p-2 sm:p-4 border">
                                             <Image src={image} alt="img-1" width={500} height={600} className="w-full" />
                                         </div>
                                     </SwiperSlide>
@@ -79,9 +92,9 @@ function ProductDetailsCard(props) {
                     </div>
                 </div>
                 {/* Text Section  */}
-                <div className="lg:w-6/12">
-                    <h4 className="text-2xl leading-normal font-medium text-black mb-5">{product.title}</h4>
-                    <h6 className="text-primary text-2xl leading-rlaxed mb-5">{product.price} <span className="text-gray-300"><del>{discountprice}</del></span></h6>
+                <div className="w-full sm:w-[600px] mx-auto lg:w-6/12 mt-8 lg:mt-0">
+                    <h4 className="text-lg xs:text-2xl leading-normal font-medium text-black mb-3 sm:mb-5">{product.title}</h4>
+                    <h6 className="text-primary text-lg xs:text-2xl leading-relaxed mb-3 sm:mb-5">{product.price} <span className="text-gray-300"><del>{discountprice}</del></span></h6>
                     {/* Reviews Section */}
                     <div>
                         <div className="inline-flex gap-x-1.5 mr-3">
@@ -97,8 +110,8 @@ function ProductDetailsCard(props) {
                     </div>
 
                     {/* Product Colors */}
-                    <div className="flex items-center mt-7">
-                        <span className="text-lg leading-relaxed font-semibold text-gray-800 inline-block mr-4">Color:</span>
+                    <div className="flex items-center mt-3 md:mt-7">
+                        <span className="sm:text-lg leading-relaxed font-semibold text-gray-800 inline-block mr-4">Color:</span>
                         <div>
                             {
                                 props.variable ? product.colorHex.map((color, id) => {
@@ -108,8 +121,8 @@ function ProductDetailsCard(props) {
                         </div>
                     </div>
                     {/* Product Size */}
-                    <div className="flex items-center mt-5 mb-4">
-                        <span className="text-lg leading-relaxed font-semibold text-gray-800 inline-block min-w-[70px]">Size:</span>
+                    <div className="flex items-center mt-3 mb-4">
+                        <span className="sm:text-lg leading-relaxed font-semibold text-gray-800 inline-block min-w-[70px]">Size:</span>
                         <div>
                             {
                                 props.variable ? product.size.map((size, id) => {
@@ -124,7 +137,7 @@ function ProductDetailsCard(props) {
 
                     {/* Button Section */}
                     <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
-                        <div className="w-18 md:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
+                        <div className="w-20 xs:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
                             <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count - 1)}>-</button>
                             <input type="text" value={count <= 0 ? '0' : count} onChange={(e) => setCount(e.target.value)} className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2" />
                             <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count + 1)}>+</button>

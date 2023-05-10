@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import {RiDeleteBinLine} from 'react-icons/ri'
 import Image from "next/image"
 import img1 from '../../../public/images/hero/hero-img-7.png'
 
@@ -26,12 +27,22 @@ function CartCard(props){
             <span className="text-[12px] md:text-sm text-tGreay-900 leading-relaxed font-normal">XL</span>
         </div>
         <div className="flex justify-between items-start border-t border-gray-300 pt-3">
-          <div className="border-y border-black w-20 md:w-24 items-center flex justify-between">
-            <button type="button" className="px-2 py-2 text-black text-base leading-none border-x border-black border-solid" onClick={() => setCount(count - 1)}>-</button>
-            <span className="flex-[3] text-sm leading-none text-black inline-block text-center">{count}</span>
-            <button type="button" className="px-2 py-2 text-black text-base leading-none border-x border-black border-solid" onClick={() => setCount(count + 1)}>+</button>
+          
+          <div className="flex">
+            {/* cart item counter  */}
+            <div className="border-y border-black w-fit  items-center grid grid-cols-3">
+              <button type="button" className="px-1.5 sm:px-2 py-1.5 sm:py-2 text-black text-base leading-none border-x border-black border-solid" onClick={() => setCount(count - 1)}>-</button>
+              <span className="flex-[3] text-sm leading-none text-black inline-block text-center">{count <= 0? '0' : count}</span>
+              <button type="button" className="px-1.5 sm:px-2 py-1.5 sm:py-2 text-black text-base leading-none border-x border-black border-solid" onClick={() => setCount(count + 1)}>+</button>
+            </div>
+            {/* remove cart Item */}
+            <button className="text-gray-500 ml-3 text-2xl">
+              <RiDeleteBinLine/>
+            </button>
           </div>
-          <p className="pt-2 text-sm md:text-base leading-1.2 text-dark-650 font-medium">
+          
+          {/* Cart price */}
+          <p className="pt-2 text-sm md:text-base leading-1.2 text-gray-800 font-medium">
             <span className="mr-2 inline-block">Total:</span>
             <span>$70</span>
           </p>

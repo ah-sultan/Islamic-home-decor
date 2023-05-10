@@ -44,8 +44,8 @@ function CetagoryTopBar(props) {
     ]
 
     return (
-        <div className="w-full bg-gray-100 py-2 px-6 flex flex-wrap items-center justify-between mb-12">
-            <p className="font-normal text-sm text-black">254 Product Found</p>
+        <div className="w-full bg-gray-100 py-2 px-3 sm:px-6 flex flex-wrap items-center justify-between mb-12">
+            <p className="font-normal text-sm text-black w-full sm:w-auto mb-5 sm:0">254 Product Found</p>
 
             {/* Nice Selection */}
             <div className="w-auto flex  bg-white border-gray-200 py-1 px-2">

@@ -1,21 +1,27 @@
+import React from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb'
 import {BiPhoneCall, BiEnvelopeOpen } from 'react-icons/bi'
 
 function contact() {
+    const notify = () => toast("Your Message Has Sent!");
   return (
    <>
    <Breadcrumb pages={['/', 'contact']}/>
      <section className="py-24">
         <div className="container">
-            <div className="grid grid-cols-2 gap-10 items-start">
+            <div className="grid gap-y-20 lg:grid-cols-2 gap-6 xl:gap-10 items-start">
                 {/* Address Section */}
                 <div>
-                    <div className="grid grid-cols-2 gap-5 ">
+                    <div className="grid sm:grid-cols-2 gap-5 ">
                         <div className="bg-green-100 rounded-md py-7 text-center">
                             <div className='w-10 h-10 border-2 border-accent center-child rounded-full mx-auto'>
                                 <BiPhoneCall className="text-xl text-accent"/>
                             </div>
-                            <span className="inline-block pt-4 pb-3 text-2xl font-semibold">Phone</span>
+                            <span className="inline-block xl:pt-4 py-2 xl:pb-3 text-xl xl:text-2xl font-semibold">Phone:</span>
                             <p className="text-lg font-medium mb-1">
                                 <a href="tel: ">+(323) 9847 3847 383</a>
                             </p>
@@ -24,19 +30,19 @@ function contact() {
                             <div className='w-10 h-10 border-2 border-accent center-child rounded-full mx-auto'>
                                 <BiEnvelopeOpen className="text-xl text-accent"/>
                             </div>
-                            <span className="inline-block pt-4 pb-3 text-2xl font-semibold">Phone</span>
-                            <p className="text-lg font-medium mb-1">
+                            <span className="inline-block xl:pt-4 py-2 xl:pb-3 text-xl xl:text-2xl font-semibold">Email:</span>
+                            <p className="text-base xl:text-lg font-medium mb-1">
                                 <a href="tel: ">example@domain.com</a>
                             </p>
                         </div>
                     </div>
                     {/* Address */}
-                    <div className="cols-2 bg-orange-100 rounded-md mt-6 p-7">
+                    <div className="bg-orange-100 rounded-md mt-6 p-7">
                         <div>
                             <div className='w-10 h-10 border-2 border-accent center-child rounded-full'>
                                 <BiEnvelopeOpen className="text-xl text-accent"/>
                             </div>
-                            <span className="inline-block pt-4 pb-3 text-2xl font-semibold">Address</span>
+                            <span className="inline-block xl:pt-4 py-2 xl:pb-3 text-xl xl:text-2xl font-semibold">Address</span>
                             <p className="text-base font-medium mb-1">
                             4517 Washington Ave. Manchester, Road 2342, Kentucky 39495
                             </p>
@@ -49,23 +55,26 @@ function contact() {
                 </div>
                 {/* Contact Section  */}
                 <div>
-                    <div className="w-11/12 mx-auto py-10 px-8 shadow-md">
+                    <div className="w-11/12 mx-auto sm:py-10 p-5 sm:px-8 shadow-sm bg-white sm:shadow-lg">
                             <h6 className="text-2xl font-medium pb-2 border-b-2 border-gray-200 mb-7">Get In Touch</h6>
                             <div>
-                                <form onChange={(e) => e.preventDefault()}>
+                                <form onChange={(e) => e.preventDefault()} required>
                                     <div>
                                         <label htmlFor="Name" className="block mb-1 text-lg text-gray-600">Name *</label>
-                                        <input type="text" id="name" className="form-input"/>
+                                        <input type="text" id="name" className="form-input" required/>
                                     </div>
                                     <div className="mt-7">
-                                        <label htmlFor="email" className="block mb-1 text-lg text-gray-600">Name *</label>
-                                        <input type="email" id="email" className="form-input"/>
+                                        <label htmlFor="email" className="block mb-1 text-lg text-gray-600">Email *</label>
+                                        <input type="email" id="email" className="form-input" required/>
                                     </div>
                                     <div className="mt-7">
-                                        <label htmlFor="message" className="block mb-1 text-lg text-gray-600">Name *</label>
-                                        <textarea type="text"  id="message" className="form-input h-40"/>
+                                        <label htmlFor="message" className="block mb-1 text-lg text-gray-600">Messages *</label>
+                                        <textarea type="text"  id="message" className="form-input h-40" required/>
                                     </div>
-                                    <button className="text-white bg-black mt-7 py-4 w-full text-center">Send Now</button>
+                                    <button onClick={notify} type='submit' className="text-white bg-black mt-7 py-4 w-full text-center">
+                                        Send Now
+                                        <ToastContainer />
+                                    </button>
                                 </form>
                             </div>
                     </div>

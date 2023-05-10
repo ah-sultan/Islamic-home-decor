@@ -16,7 +16,7 @@ function ProductMiniCard(props) {
         </div>
         <div className="w-7/12">
             <Link href={props.title}>
-                <h6 className="text-blue-400 text-sm mb-3 capitalize hover:text-accent">{props.title.substring(1, 30)}</h6>
+                <h6 className="text-blue-400 text-sm mb-3 capitalize hover:text-accent line-clamp-2">{props.title}</h6>
             </Link>
             <div>
                 <span className="text-primary">

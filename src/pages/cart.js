@@ -8,8 +8,8 @@ function Cart() {
     <>
         <Breadcrumb pages={['home', 'cart']}/>
         <div className="container">
-          <div className="py-60px lg:py-20 xl:py-24">
-              <h4 className="text-xl sm:text-2xl leading-4 font-semibold mb-8">Your cart items</h4>
+          <div className="py-12 sm:px-10 lg:px-0 lg:py-20 xl:py-24">
+              <h4 className="text-xl sm:text-2xl leading-4 text-gray-900 font-semibold mb-8">Your cart items: {12}</h4>
               <div className="flex flex-col lg:flex-row">
                 <div className="pt-7 border-t border-gray-100 lg:w-7/12">
                   <CartCard/>

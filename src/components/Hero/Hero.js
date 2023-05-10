@@ -25,11 +25,11 @@ function Hero() {
                         </div>
                         {/* Image Section */}
                         <div className="w-full lg:w-9/12">
-                            <div className="flex flex-wrap">
-                                <div className="w-7/12">
-                                    <Image src={heroImg1} alt="hero Image" className="max-full" />
+                            <div className="sm:flex flex-wrap">
+                                <div className="sm:w-7/12">
+                                    <Image src={heroImg1} alt="hero Image" className="w-full" />
                                 </div>
-                                <div className="w-5/12 flex flex-wrap items-stretch">
+                                <div className="sm:w-5/12 flex flex-wrap items-stretch">
                                     <div className="w-1/2" >
                                         <Image src={heroImg2} alt="hero image" className="w-full h-full" />
                                     </div>
@@ -41,11 +41,11 @@ function Hero() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex">
-                                <div className="w-7/12">
+                            <div className="sm:flex">
+                                <div className="sm:w-7/12">
                                     <Image src={heroImg5} alt="hero Image" className="max-full" />
                                 </div>
-                                <div className="w-5/12 flex flex-wrap items-stretch">
+                                <div className="sm:w-5/12 flex flex-wrap items-stretch">
                                     <div className="w-1/2" >
                                         <Image src={heroImg6} alt="hero image" className="w-full h-full" />
                                     </div>

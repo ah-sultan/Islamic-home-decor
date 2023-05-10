@@ -4,7 +4,7 @@ import React from 'react'
 function Breadcrumb(props) {
     return (
         <>
-            <section className="py-2.5 bg-gray-100">
+            <section className="py-2.5 bg-gray-200">
                 <div className="container">
                     <ul className='flex '>
                         {
