@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import QuickView from "../QuickView/QuickView"
 
 
@@ -7,11 +8,23 @@ import { useSelector} from 'react-redux';
 
 
 function Portal() {
-    const productData = useSelector((state) => state.quickView.data);
-    console.log(productData)
+    const productData = useSelector((state) => state.quickView);
+
+    useEffect(() => {
+      if(productData.show){
+        document.body.style.overflow = "hidden"
+      }else{
+        document.body.style.overflow = "unset"
+
+      }
+    })
+
   return (
     <>
-        {/* <QuickView product={QuickViewContextData}/> */}
+        
+        {
+          productData.show ? <QuickView product={productData.data}/> : undefined
+        }
     </>
   )
 }

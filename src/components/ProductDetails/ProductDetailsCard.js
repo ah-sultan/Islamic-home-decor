@@ -1,7 +1,8 @@
 
 import Image from 'next/image'
-import { useState, useEffect } from 'react';
-
+import react,{ useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FaStar, FaRegHeart, FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa'
 
 // Swiper JS  
@@ -12,22 +13,53 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
+// Redux Features
+import { useDispatch, useSelector } from 'react-redux';
+import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
+
 
 function ProductDetailsCard(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [count, setCount] = useState(0)
 
-    useEffect(() => {
-        if (count <= 0) {
-            setCount(0)
-        }
-    })
+    // Tostify Message
+    const notify = () => toast("Product Added To Cart");
 
     const product = props.product
     const images = Array(5).fill(product.image)
     const rate = Math.floor(product.rating.rate)
     const discount = 10
     const discountprice = product.price - discount / 10
+
+    const cartItem = {
+        id : props.product.id,
+        title : props.product.title,
+        thumbnail : props.product.image,
+        price : props.product.price,
+        size: 'xl',
+        color: 'red'
+    }
+
+    // Redux Feature ===============
+    const dispatch = useDispatch()
+    const cartdata = useSelector((state) => state.cart.cart)
+
+    useEffect(() => {
+        cartdata?.map((data) => {
+            if(data.id === cartItem.id){
+                setCount(data.quantity || 0)
+            }
+        })
+
+    })
+   
+
+    // add to cart handler
+    const addCartHandler = ()=>{
+        dispatch(addToCart(cartItem))
+        
+        count > 0 ? null : notify()
+    }
 
     return (
         <div>
@@ -94,7 +126,7 @@ function ProductDetailsCard(props) {
                 {/* Text Section  */}
                 <div className="w-full sm:w-[600px] mx-auto lg:w-6/12 mt-8 lg:mt-0">
                     <h4 className="text-lg xs:text-2xl leading-normal font-medium text-black mb-3 sm:mb-5">{product.title}</h4>
-                    <h6 className="text-primary text-lg xs:text-2xl leading-relaxed mb-3 sm:mb-5">{product.price} <span className="text-gray-300"><del>{discountprice}</del></span></h6>
+                    <h6 className="text-primary text-lg xs:text-2xl leading-relaxed mb-3 sm:mb-5">${product.price} <span className="text-gray-500"><del>${discountprice}</del></span></h6>
                     {/* Reviews Section */}
                     <div>
                         <div className="inline-flex gap-x-1.5 mr-3">
@@ -137,12 +169,17 @@ function ProductDetailsCard(props) {
 
                     {/* Button Section */}
                     <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
+                        {/* Cart Item Counter */}
                         <div className="w-20 xs:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
-                            <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count - 1)}>-</button>
-                            <input type="text" value={count <= 0 ? '0' : count} onChange={(e) => setCount(e.target.value)} className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2" />
-                            <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count + 1)}>+</button>
+                            <button onClick={() => count <= 0 ? null : dispatch(decrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">-</button>
+                            <div className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2">
+                                {count}                            
+                            </div>
+                            <button onClick={() => count <= 0 ? null : dispatch(incrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">+</button>
                         </div>
-                        <button className="px-2.5 sm:px-8 rounded-sm h-12 bg-primary text-white font-semibold text-[12px] sm:text-sm leading-relaxed block uppercase hover:bg-black trns-1 tracking-widest">Add To Cart</button>
+
+                        {/* Add to cart button section */}
+                        <button onClick={addCartHandler} className="px-2.5 sm:px-8 rounded-sm h-12 bg-primary text-white font-semibold text-[12px] sm:text-sm leading-relaxed block uppercase hover:bg-black trns-1 tracking-widest">Add To Cart</button>
                         <button className="w-12 h-12 rounded-sm center-child bg-gray-800 text-white text-lg hover:bg-black trns-1"><FaRegHeart /></button>
                     </div>
 
@@ -162,6 +199,7 @@ function ProductDetailsCard(props) {
                     </div>
                 </div>
             </div>
+            <ToastContainer autoClose={500} theme={'dark'}/>
         </div>
     )
 }

@@ -5,21 +5,32 @@ import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
+// Redux Featuer
+import { useSelector,useDispatch  } from 'react-redux'
+import {incrementQuantity, decrementQuantity, removeItem} from '@/feature/Cart/cartSlice' 
+
 function SiteCartCard(props){
+
+const dispatch = useDispatch()
+
     return(
         <>
         <div className="flex">
-           <div className="flex-1">
-                <a href="#">
-                    <Image src={props.img} alt="img"/>
-                </a>
+           <div className="flex-1 p-1 border">
+                <Image src={props.image} alt="item" width={200} height={270}/>
            </div>
-           <div className="pl-15px flex-[3] xs:flex-[2]">
+           <div className="pl-5 flex-[3] xs:flex-[2]">
                 <div className="flex items-center justify-between mb-2">
-                    <a href="#" className="text-sm leading-relaxed font-normal text-black hover:text-primary">{props.title}</a>
-                    <button className="text-xl leading-relaxed font-normal text-black hover:text-primary" type="button">×</button>
+                    <a href="#" className="text-sm leading-relaxed font-normal text-black hover:text-primary line-clamp-2">{props.title}</a>
+                    <button  type="button" onClick={() => dispatch(removeItem(props.id))} className="text-xl leading-relaxed font-normal text-black hover:text-primary">×</button>
                 </div>
-                <h6 className="text-sm leading-relaxed font-normal text-gray-600">1 x <span className="text-lg leading-relaxed font-medium text-primary">${props.price}</span></h6>
+                <h6 className="text-sm leading-relaxed font-normal text-gray-600">{props.quantity} x <span className="text-lg leading-relaxed font-medium text-primary">${props.price}</span></h6>
+                {/* Item quantity Controler */}
+                <div className="mt-2 flex w-fit bg-gray-300">
+                    <button type="button"  onClick={() => dispatch(decrementQuantity(props.id)) } className="text-base px-1.5 py-0.5">-</button>
+                    <div className="text-base text-center px-1.5 py-0.5 w-10">{props.quantity}</div>
+                    <button type="button"  onClick={() => dispatch(incrementQuantity(props.id)) }  className="text-base px-1.5 py-0.5">+</button>
+                </div>
            </div>
         </div>
         </>
@@ -29,8 +40,20 @@ function SiteCartCard(props){
 
 
 function SideCart(props) {
+
+    // Redux features
+    const cartData = useSelector((state) => state.cart)
+
     const showCart = props.showCart
-     const cartItems = 7
+
+    const getTotalQuantity = () => {
+        let total = 0
+
+        cartData.cart.forEach(item => {
+            total += item.quantity
+        })
+        return total
+    }
 
   return (
     <>
@@ -40,7 +63,7 @@ function SideCart(props) {
                     <div className="max-h-full overflow-hidden grid">
                         {/* Cart Header Section =============== */}
                         <div className="flex justify-between mb-8 border-b border-gray-200 pb-2">
-                            <h6 className="text-xl leading-relaxed font-medium">Your Cart Items {cartItems}</h6>
+                            <h6 className="text-xl leading-relaxed font-medium">Your Cart Items: {getTotalQuantity() || 0}</h6>
                             <button className="group/closeBtn w-5 h-5 relative" onClick={() => props.cartHandler(false)}>
                                 <AiOutlineClose className="group-hover/closeBtn:rotate-180 trns-1 text-2xl"/>
                             </button>
@@ -48,14 +71,17 @@ function SideCart(props) {
                         {/* Product Card ===============*/}
                         <div className="overflow-y-scroll">
                             <ul className=" pr-3">
-                                {
-                                    Array(7).fill().map((_, index) => {
-                                        return(
-                                            <li key={index} className="mb-8 border-b border-b-gray-200 pb-4">
-                                                <SiteCartCard img={img1} title="Women's Elizabeth Coat" price="43.28"/>
-                                            </li>
-                                        )
-                                    })
+                                 {
+                                    cartData.cart.map((item) => (
+                                        <SiteCartCard
+                                          key={item.id}
+                                          id={item.id}
+                                          image={item.thumbnail}
+                                          title={item.title}
+                                          price={item.price} 
+                                          quantity={item.quantity}
+                                        />
+                                      ))
                                 }
                             </ul>
                         </div>

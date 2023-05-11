@@ -85,7 +85,7 @@ function MainProduct(props) {
                                         props.product.map((data, index) => {
                                             return (
                                                 <SwiperSlide key={index}>
-                                                    <ProductCard img={data.image} title={data.title} rating={data.rating} price={data.price} />
+                                                    <ProductCard id={data.id} image={data.image} title={data.title} rating={data.rating} price={data.price} />
                                                 </SwiperSlide>
                                             )
                                         })

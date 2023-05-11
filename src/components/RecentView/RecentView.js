@@ -12,7 +12,7 @@ function RecentView(props) {
                     {
                         product.map((data, index) => {
                             return (
-                                <ProductCard key={index} img={data.image} title={data.title} rating={data.rating} price={data.price} />
+                                <ProductCard key={index} id={data.id} image={data.image} title={data.title} rating={data.rating} price={data.price} />
                             )
                         })
                     }

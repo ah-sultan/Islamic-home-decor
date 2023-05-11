@@ -11,11 +11,10 @@ function ReplyCard() {
             <div>
                 <div className="flex mb-3 items-center">
                     <div className="w-14 center-child overflow-hidden mr-5 h-14 rounded-full border border-gray-300">
-                        <Image src={``} alt='owner' />
                     </div>
                     <div>
                         <h6>Jone Doe</h6>
-                        <p><time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
+                        <p><time dateTime="2014-08-16 19:00" className="block text-sm text-gray-500 dark:text-gray-400">Joined on August 2014</time></p>
                     </div>
                 </div>
 
@@ -57,7 +56,7 @@ function ProductReview() {
                             <div className="mt-1 mb-3">
                                 {
                                     Array(getRate).fill().map((_, index) => (
-                                        <button type="button" onClick={() => setRate(index + 1)}>
+                                        <button key={index} type="button" onClick={() => setRate(index + 1)}>
                                             <FaStar key={index} className="text-accent inline-block mr-0.5" />
                                         </button>
 
@@ -66,7 +65,7 @@ function ProductReview() {
 
                                 {
                                     Array(5 - getRate).fill().map((_, index) => (
-                                        <button type="button" onClick={() => setRate(index + 1)}>
+                                        <button key={index} type="button" onClick={() => setRate(index + 1)}>
                                             <FaStar key={index} className="hover:text-accent text-gray-300 inline-block mr-0.5" />
                                         </button>
                                     ))

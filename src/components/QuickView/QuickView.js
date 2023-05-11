@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { useState, useEffect } from 'react';
+import react,{ useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
 import { FaStar, FaRegHeart, FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 
@@ -11,28 +13,65 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
+
+// Redux features
+import { useDispatch, useSelector } from 'react-redux';
+import { hideQuickView } from '@/feature/QuickView/quickViewSlice';
+import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
+
+
+
 function QuickView(props) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [count, setCount] = useState(0)
+    
+    // Tostify Message
+    const notify = () => toast("Product Added To Cart");
 
-    useEffect(() => {
-        if (count <= 0) {
-            setCount(0)
-        }
-
-        
-    })
-
-    function quickViewHander(){
-        props.setQuickViewHandler(false)
-        
-    }
+    console.log(props.product)
 
     const product = props.product
-    const images = Array(5).fill(product.img)
-    const rate = Math.floor(product.rating.rate)
+    const images = Array(5).fill(product.image)
+    const rate = Math.floor(product?.rating.rate)
     const discount = 10
     const discountprice = product.price - discount / 10
+
+    const cartItem = {
+        id : props.product.id,
+        title : props.product.title,
+        thumbnail : props.product.image,
+        price : props.product.price,
+        size: 'xl',
+        color: 'red'
+    }
+
+    // Redux Feature ===============
+    const dispatch = useDispatch()
+    const cartdata = useSelector((state) => state.cart.cart)
+
+
+    function quickViewHander(){
+       dispatch(hideQuickView(false))
+        
+    }
+  
+      useEffect(() => {
+
+        
+          cartdata?.map((data) => {
+              if(data.id === cartItem.id){
+                  setCount(data.quantity || 0)
+              }
+          })
+  
+      })
+     
+      // add to cart handler
+      const addCartHandler = ()=>{
+          dispatch(addToCart(cartItem))
+          
+          count > 0 ? null : notify()
+      }
 
     return (
         <div className="fixed left-0 right-0 top-0 bottom-0 z-[120] bg-[rgba(0,0,0,.9)] animate-popup">
@@ -145,11 +184,15 @@ function QuickView(props) {
                             {/* Button Section */}
                             <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
                                 <div className="w-20 md:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
-                                    <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count - 1)}>-</button>
-                                    <input type="text" value={count <= 0 ? '0' : count} onChange={(e) => setCount(e.target.value)} className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2" />
-                                    <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => setCount(count + 1)}>+</button>
+                                    <button type="button" className="text-white text-lg leading-5 font-medium"  onClick={() => count <= 0 ? null : dispatch(decrementQuantity(cartItem.id)) }>-</button>
+
+                                    <div className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2">
+                                        {count}                            
+                                    </div>
+
+                                    <button onClick={() => count <= 0 ? null : dispatch(incrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">+</button>
                                 </div>
-                                <button className="px-2.5 sm:px-8 rounded-sm h-12 bg-primary text-white font-semibold text-[12px] sm:text-sm leading-relaxed block uppercase hover:bg-black trns-1 tracking-widest">Add To Cart</button>
+                                <button onClick={addCartHandler} className="px-2.5 sm:px-8 rounded-sm h-12 bg-primary text-white font-semibold text-[12px] sm:text-sm leading-relaxed block uppercase hover:bg-black trns-1 tracking-widest">Add To Cart</button>
                                 <button className="w-12 h-12 rounded-sm center-child bg-gray-800 text-white text-lg hover:bg-black trns-1"><FaRegHeart /></button>
                             </div>
 

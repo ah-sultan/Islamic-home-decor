@@ -5,6 +5,9 @@ import { BiChevronDown, BiMenu } from "react-icons/bi";
 import SideNav from "../SideNav/SideNav";
 import SearchBox from "../SearchBox/SearchBox";
 
+// Redux featrture
+import { useSelector } from 'react-redux';
+
 function LogoBar(props) {
     const [stickyNav, setStickyNav] = useState(false)
 
@@ -17,6 +20,21 @@ function LogoBar(props) {
         window.addEventListener('scroll', stickyNavHandler)
 
     })
+
+    // Redux Features
+    const cartData = useSelector((state) => state.cart)
+
+
+
+    const getTotalQuantity = () => {
+    let total = 0
+    cartData.cart.forEach(item => {
+        total += item.quantity
+    })
+    return total
+    }
+
+
     return (
         <>
             <div className={`bg-white py-5 ${stickyNav ? 'navbarSticky' : null}`}>
@@ -52,10 +70,14 @@ function LogoBar(props) {
                                 <li className="hidden lg:block">
                                     <AiOutlineHeart className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                 </li>
+
+                                {/* cart handler icon */}
                                 <li className="relative">
                                     <button type="button" onClick={() => props.cartHandler(true)}>
                                         <AiOutlineShoppingCart className="inline-block hover:text-primary text-gray-400 text-4xl" />
-                                        <span className="absolute p-0.5 rounded-full bg-accent -right-2 text-xs -bottom-2">12</span>
+                                        <span className="absolute w-5 h-5 rounded-full center-child bg-accent -right-2 text-xs -bottom-2">
+                                            {getTotalQuantity() || 0}
+                                        </span>
                                     </button>
 
                                 </li>

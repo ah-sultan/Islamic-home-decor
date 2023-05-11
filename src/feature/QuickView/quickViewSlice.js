@@ -15,7 +15,7 @@ const quickViewSlice = createSlice({
         },
 
         hideQuickView(state, action){
-            return{...state, show : true, data : action.payload}
+            return{...state, show : false}
         }
     }
 })
