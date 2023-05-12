@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BiChevronRight } from 'react-icons/bi'
 import { SideNavData } from './SideNavData'
 import SideSubMenu from './SideSubMenu'
@@ -22,7 +23,7 @@ export default function SideNav() {
                     return (
                         <li key={index} className="py-2.5 lg:hover:bg-primary lg:px-4 lg:hover:text-nav  text-sm lg:text-base leading-none group border-b">
                             <div className="flex item-center justify-between">
-                                <span>{list.title}</span>
+                                <Link href="/shop"  >{list.title}</Link>
                                 <button onClick={() => subNavToggler(index)}>
                                     <BiChevronRight className={`text-xl trns-1  lg:rotate-0 ${showSubNav === index ? '-rotate-90' : 'rotate-90'}`} />
                                 </button>

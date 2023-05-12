@@ -7,7 +7,7 @@ function singleProduct({ product, relatedProduct }) {
     return (
         <>
             <Meta title={product.title} />
-            <Breadcrumb pages={['/', 'Single products']} />
+            <Breadcrumb pages={[product.title]} />
             <ProductDetails product={product} />
             <RelatedProduct products={relatedProduct} />
         </>

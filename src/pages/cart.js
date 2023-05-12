@@ -41,7 +41,7 @@ function Cart() {
 
   return (
     <>
-        <Breadcrumb pages={['/', 'cart']}/>
+        <Breadcrumb pages={['cart']}/>
         <div className="container">
           {/* Left Side Cart items Section */}
           <div className="py-12 sm:px-10 lg:px-0 lg:py-20 xl:py-24">

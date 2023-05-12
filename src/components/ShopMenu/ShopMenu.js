@@ -22,7 +22,7 @@ function CetagoryMenu() {
                             return (
                                 <li className="text-black text-sm  mb-3 last:mb-0" key={index}>
                                     <div className=" justify-between items-center flex hover:text-accent">
-                                        <Link href={list.url}>
+                                        <Link href={`/shop`}>
                                             {list.title}
                                         </Link>
                                         <button onClick={() => subnavHandler(index)}>
@@ -36,7 +36,7 @@ function CetagoryMenu() {
                                                 list.dropdown.map((dropdownList, dropDownindex) => {
                                                     return (
                                                         <li className="text-black text-sm  mb-3 last:mb-0 hover:text-accent" key={dropDownindex} >
-                                                            <Link href={dropdownList.url}>{dropdownList.title}</Link>
+                                                            <Link href={`/shop`}>{dropdownList.title}</Link>
                                                         </li>
                                                     )
                                                 })

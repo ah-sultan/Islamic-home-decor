@@ -22,6 +22,8 @@ function CartCard(props){
     return {totalPrice, totalQuantity}
   }
 
+    const totalPrice =props.quantity * props.price
+
   return(
     <div className="flex items-center w-full mb-6 pb-6 border-b border-gray-100">
       <div className="rounded overflow-hidden basis-[20%]">
@@ -55,7 +57,7 @@ function CartCard(props){
           {/* Cart Total Price */}
           <p className="pt-2 text-sm md:text-base leading-1.2 text-gray-800 font-medium">
             <span className="mr-2 inline-block">Total:</span>
-            <span>${getTotal().totalPrice.toFixed(2)}</span>
+            <span>${totalPrice.toFixed(2)}</span>
           </p>
           </div>
       </div>

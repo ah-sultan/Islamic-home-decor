@@ -12,7 +12,7 @@ import TestimonialCard from "@/components/TestimonialCard/TestimonialCard"
 function about() {
     return (
         <>
-            <Breadcrumb pages={['Home', 'about']} />
+            <Breadcrumb pages={['about']} />
             <section>
                 <div class="container">
                     <div class="w-full lg:flex items-center pb-10 lg:pb-0 gap-7 mt-20">

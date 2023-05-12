@@ -10,7 +10,7 @@ function contact() {
     const notify = () => toast("Your Message Has Sent!");
   return (
    <>
-   <Breadcrumb pages={['/', 'contact']}/>
+   <Breadcrumb pages={['contact']}/>
      <section className="py-24">
         <div className="container">
             <div className="grid gap-y-20 lg:grid-cols-2 gap-6 xl:gap-10 items-start">

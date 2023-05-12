@@ -5,7 +5,7 @@ import RelatedProduct from "@/components/RelatedProduct/RelatedProduct"
 function singleProduct({ product }) {
     return (
         <>
-            <Breadcrumb pages={['/', 'Single products']} />
+            <Breadcrumb pages={['Single products']} />
             <ProductDetails product={product[2]} />
             <RelatedProduct products={product} />
         </>

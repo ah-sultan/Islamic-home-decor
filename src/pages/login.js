@@ -6,7 +6,7 @@ import { FiRefreshCcw } from 'react-icons/fi'
 function login() {
     return (
         <>  
-        <Breadcrumb pages={['/', 'login']}/>
+        <Breadcrumb pages={['login']}/>
             <section className="py-20 bg-gray-100">
             <div className="container">
             <div className="w-full md:w-[600px] bg-white mx-auto shadow-md ">

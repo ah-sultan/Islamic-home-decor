@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { usePathname } from 'next/navigation';
 import Link from "next/link"
 
 import { AiFillEye, AiOutlineHeart, AiOutlineBarChart } from 'react-icons/ai'
@@ -11,9 +12,11 @@ import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 
 function ProductCard(props) {
+    const pathname = usePathname();
     const rate = Math.floor(props.rating.rate)
     const discount = 10
     const totalDiscount = props.price - discount / 10
+
 
     // Quick view Handler
     const dispatch = useDispatch();
@@ -45,7 +48,8 @@ function ProductCard(props) {
                     </div>
                 </div>
                 <div className="pt-2">
-                    <Link href={`/shop/[id]`} as={`/shop/${props.title}`}>
+                    <Link href={`/shop/[id]`} as={`/shop/${props.id}`}
+                    >
                         <span className="text text-sm text-blue-400 capitalize line-clamp-2 h-10 inline-block">{props.title}</span>
                     </Link>
                     <div className="mt-3 mb-2 flex items-center">

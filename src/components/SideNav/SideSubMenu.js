@@ -15,7 +15,7 @@ function SideSubMenu(props) {
                 {
                     props.subMenudata.map((list, index) => (
                         <li key={index} className="py-2.5 border-b border-b-gray-200 last:border-0">
-                            <Link href={list.url}>
+                            <Link href='/shop'>
                                 <span className="text-black hover:text-primary ">{list.title}</span>
                             </Link>
                         </li>

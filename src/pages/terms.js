@@ -32,7 +32,7 @@ const tremsData = [
 function terms() {
   return (
    <>
-    <Breadcrumb pages={['/', 'Terms & Conditions']}/>
+    <Breadcrumb pages={['Terms & Conditions']}/>
     <section className="py-14 md:py-20">
         <div className="lg:w-[800px] mx-auto w-full px-4 md:px-6">
             <h3 className="text-xl sm:text-4xl pb-4 border-b border-b-gray-600">

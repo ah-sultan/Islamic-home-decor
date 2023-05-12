@@ -27,7 +27,7 @@ function Checkout() {
         <>
             <section>
                 <Meta title="Checkout"/>
-                <Breadcrumb pages={['/', 'Checkout']} />
+                <Breadcrumb pages={['cart', 'Checkout']} />
                 <div className="container">
                     <div className="py-16 lg:py-20 xl:py-20">
                         <div className="flex flex-col lg:flex-row gap-x-8">
