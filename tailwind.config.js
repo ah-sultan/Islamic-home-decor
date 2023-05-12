@@ -15,7 +15,7 @@ module.exports = {
 
     screens: {
 
-      'xs' : '520px',
+      'xs': '520px',
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -46,19 +46,19 @@ module.exports = {
         "nav": '#fff'
       },
     },
-    keyframes : {
-      "stickyNav" : {
-        "0%" : {top : '-200px'},
-        "100%" : {top : "0"}
+    keyframes: {
+      "stickyNav": {
+        "0%": { top: '-200px' },
+        "100%": { top: "0" }
       },
-      "popup" : {
-        "0%" : {transform : 'scale(0)',},
-        "100%" : {transform : 'scale(1)'}
+      "popup": {
+        "0%": { transform: 'scale(0)', },
+        "100%": { transform: 'scale(1)' }
       },
     },
-    animation : {
-      "stickyNav" : 'stickyNav .7s ease-in',
-      "popup" : 'popup .3s ease-in',
+    animation: {
+      "stickyNav": 'stickyNav .7s ease-in',
+      "popup": 'popup .3s ease-in',
     }
   },
   plugins: [

@@ -4,7 +4,7 @@ import ProductCard from '../ProductCard/ProductCard'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from "swiper";
 import 'swiper/css';
-import {BsChevronLeft, BsChevronRight} from 'react-icons/bs'
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
 // Deals image
 import deals_img from '../../../public/images/best-deals/deals-img.png'
@@ -15,12 +15,12 @@ function BestDeals(props) {
     const pagination = {
         clickable: true,
         renderBullet: function (index, className) {
-          return `<button type="button" class=" ${className} slider-dots"></button>`
+            return `<button type="button" class=" ${className} slider-dots"></button>`
         },
         el: ".bestDealsDots",
         type: 'bullets',
-    
-        
+
+
     }
     return (
         <>
@@ -61,32 +61,32 @@ function BestDeals(props) {
                                 pagination={pagination}
                                 modules={[Pagination, Navigation]}
                                 className="testimoniaSwiper"
-                                navigation = {{
-                                        nextEl: '.nextSlide',
-                                        prevEl: '.prevSlide',
+                                navigation={{
+                                    nextEl: '.nextSlide',
+                                    prevEl: '.prevSlide',
                                 }}
 
                                 breakpoints={{
 
-                                    460 : {
-                                        slidesPerView : 2,
-                                        spaceBetween : 18,
+                                    460: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 18,
                                     },
 
 
-                                    768 : {
-                                        slidesPerView : 3,
-                                        spaceBetween : 24,
+                                    768: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 24,
                                     },
 
-                                    1024 : {
-                                        slidesPerView : 4,
-                                        spaceBetween : 24,
+                                    1024: {
+                                        slidesPerView: 4,
+                                        spaceBetween: 24,
                                     },
 
-                                    1200 : {
-                                        slidesPerView : 5,
-                                        spaceBetween : 24,
+                                    1200: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 24,
                                     }
 
 
@@ -96,7 +96,7 @@ function BestDeals(props) {
                                     props.product.map((data, index) => {
                                         return (
                                             <SwiperSlide key={index}>
-                                                <ProductCard id={data.id} image={data.image} title={data.title} rating={data.rating} price={data.price} />
+                                                <ProductCard id={data.id} image={data.image} thumbnail={data.thumbnail} title={data.title} rating={data.rating} price={data.price} />
                                             </SwiperSlide>
                                         )
                                     })
@@ -104,22 +104,22 @@ function BestDeals(props) {
                             </Swiper>
                             {/* Button Section */}
                             <button className="trns-1 absolute w-10 h-10 rounded-full center-child left-0  top-1/2 -translate-y-1/2 -mt-5 text-gray-400 z-30 hover:bg-primary hover:text-white prevSlide">
-                                <BsChevronLeft className="text-xl"/>
+                                <BsChevronLeft className="text-xl" />
                             </button>
                             <button className="trns-1 absolute w-10 h-10 rounded-full center-child right-0  top-1/2 -translate-y-1/2 -mt-5 text-gray-400 z-30 hover:bg-primary hover:text-white nextSlide">
-                                <BsChevronRight className="text-xl"/>
+                                <BsChevronRight className="text-xl" />
                             </button>
 
                             <div className="flex justify-center gap-x-2 bestDealsDots mt-7 mb-8 ">
-                                    
+
                             </div>
                         </div>
 
                         {/* Banner Image */}
-                       
-                     </div>
-                     <div>
-                            <Image src={deals_img} alt="deals-img" width={1000} height={200} className="w-full max-h-full"/>
+
+                    </div>
+                    <div>
+                        <Image src={deals_img} alt="deals-img" width={1000} height={200} className="w-full max-h-full" />
                     </div>
                 </div>
             </section>

@@ -12,9 +12,9 @@ import bannerImg from '../../public/images/banner-img/banner-img.jpg'
 export default function Home({ product }) {
   return (
     <>
-      <Meta/>
+      <Meta />
       <Hero />
-      <BestDeals product={product} />
+      <BestDeals product={product.slice(1, 7)} />
       <MainProduct product={product} />
       <BannerImg img={bannerImg} />
       <HomeProduct product={product} />
@@ -23,9 +23,18 @@ export default function Home({ product }) {
   )
 }
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
+//   const res = await fetch('https://fakestoreapi.com/products')
+//   const product = await res.json()
+//   return {
+//     props: {
+//       product: product
+//     },
+//   };
+// }
+
+export async function getStaticProps(context) {
   const res = await fetch('https://fakestoreapi.com/products')
-  // const res = await fetch('https://dummyjson.com/users')
   const product = await res.json()
   return {
     props: {
@@ -33,3 +42,5 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+

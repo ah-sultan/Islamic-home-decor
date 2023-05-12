@@ -18,11 +18,10 @@ function ProductCard(props) {
     // Quick view Handler
     const dispatch = useDispatch();
 
-
     useEffect(() => {
-        if(false){
+        if (false) {
             document.body.style.overflow = 'hidden'
-        }else{
+        } else {
             document.body.style.overflow = 'unset'
         }
     })
@@ -46,7 +45,7 @@ function ProductCard(props) {
                     </div>
                 </div>
                 <div className="pt-2">
-                    <Link href="/">
+                    <Link href={`/shop/[id]`} as={`/shop/${props.title}`}>
                         <span className="text text-sm text-blue-400 capitalize line-clamp-2 h-10 inline-block">{props.title}</span>
                     </Link>
                     <div className="mt-3 mb-2 flex items-center">

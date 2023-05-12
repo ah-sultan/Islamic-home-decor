@@ -6,7 +6,7 @@ function RelatedProduct(props) {
         <section className="py-10 bg-gray-100 lg:mt-24">
             <div className="container">
                 <h4 className="section-title">
-                    Recently Viewed Products
+                    Related Product Products
                 </h4>
                 <div className="mt-8 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid gap-x-6 gap-y-8 ">
                     {

@@ -2,7 +2,8 @@ import { BiChevronRight } from 'react-icons/bi'
 import { SideNavData } from './SideNavData'
 import SideSubMenu from './SideSubMenu'
 import { useState } from 'react'
-function SideNav() {
+
+export default function SideNav() {
     const [showSubNav, setShowSubNav] = useState("0");
 
     const subNavToggler = (index) => {
@@ -37,4 +38,16 @@ function SideNav() {
     )
 }
 
-export default SideNav
+export async function getServerSideProps(context) {
+    const res = await fetch('https://fakestoreapi.com/products')
+    const product = await res.json()
+    console.log(product)
+    return {
+        props: {
+            product: product
+        },
+    };
+}
+
+
+
