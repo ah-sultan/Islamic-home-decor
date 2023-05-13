@@ -36,7 +36,7 @@ export async function getStaticPath() {
     const ids = product.map((item) => item.id)
     const path = ids.map((id) => ({ params: { id: id.toString() } }))
     return {
-        path,
+        path : 'dummyPath',
         fallback: false
     };
 }
