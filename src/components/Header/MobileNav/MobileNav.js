@@ -11,6 +11,9 @@ import { AiOutlineUser, AiOutlineClose } from 'react-icons/ai'
 import SideNav from '@/components/SideNav/SideNav'
 import SearchBox from '@/components/SearchBox/SearchBox'
 
+// Redux features
+import { useSelector } from 'react-redux'
+
 function MobileNav(props) {
   const [showNav, setShowNav] = useState(false)
   const [showSerchBox, setshowSerchBox] = useState(false)
@@ -23,6 +26,17 @@ function MobileNav(props) {
     }
   })
 
+  // Redux Features
+  const cartData = useSelector((state) => state.cart)
+  const getTotalQuantity = () => {
+    let total = 0
+    cartData.cart.forEach(item => {
+        total += item.quantity
+    })
+    return total
+    }
+
+
   return (
     <div className="bg-white py-1.5 fixed z-[100] w-full bottom-0 border-t shadow-[-10px_0px_5px_rgba(0,0,0,0.3)]">
       <div className="container">
@@ -31,7 +45,7 @@ function MobileNav(props) {
           <button onClick={() => { setshowSerchBox(true) }} className="text-3xl"><BsSearch /></button>
           <button className="text-3xl"><GrHome /></button>
           <button onClick={() => props.cartHandler(true)} className="text-3xl relative"><FaShoppingBasket />
-            <span className="absolute p-1 rounded-full bg-accent -right-2 text-xs -top-1">12</span>
+            <span className="absolute p-1 w-5 h-5 rounded-full center-child bg-accent -right-2 text-xs -top-1">{getTotalQuantity()}</span>
           </button>
           <button onClick={() => props.LoginBoxHandler(true)} className="text-3xl"><AiOutlineUser /></button>
         </div>

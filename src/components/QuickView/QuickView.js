@@ -79,7 +79,7 @@ function QuickView(props) {
 
             </div>
             <div className="w-full lg:container lg:center-child h-full overflow-scroll py-10 sm:py-20 lg:py-0">
-                <div className="bg-white w-11/12 sm:w-10/12 mx-auto p-6 md:p-8">
+                <div className="bg-white w-11/12 sm:w-10/12 mx-auto p-6 md:p-8 relative">
                     <div className="flex flex-col lg:flex lg:flex-row gap-y-7 gap-x-8 items-start">
                         {/* Images Section */}
                         <div className="w-full lg:w-5/12">
@@ -135,7 +135,7 @@ function QuickView(props) {
                         <div className="w-full lg:w-7/12">
                             {/* Popup Close Button ================= */}
                             <div className="text-right mb-4">
-                                    <button onClick={quickViewHander} type="button" className="text-2xl">
+                                    <button onClick={quickViewHander} type="button" className="text-2xl absolute z-50 right-7 top-7 sm:right-10 sm:top-10 lg:right-6 lg:top-6">
                                         <AiOutlineClose/>
                                     </button>
                             </div>
