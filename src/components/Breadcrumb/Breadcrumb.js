@@ -10,6 +10,7 @@ function Breadcrumb(props) {
                         <li className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]" >
                             <Link href='/'>home</Link>
                         </li>
+<<<<<<< HEAD
                             {
                                 props.pages.map((title, index) => {
                                     return (
@@ -21,6 +22,19 @@ function Breadcrumb(props) {
                                     )
                                 })
                             }
+=======
+                        {
+                            props.pages.map((title, index) => {
+                                return (
+                                    <li ld={index.length} key={index} className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]">
+
+                                        {index === title.length - 1 ? <span>{'bakhor'}</span> : <Link href={title}>{title}</Link>}
+
+                                    </li>
+                                )
+                            })
+                        }
+>>>>>>> 4f974b4af235452c77dee2aa3a128183174b1302
                     </ul>
                 </div>
             </section>

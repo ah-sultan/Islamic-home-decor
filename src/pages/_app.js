@@ -1,4 +1,4 @@
-import { Noto_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import '@/styles/globals.css'
 import Layout from '@/components/Layout'
 
@@ -6,7 +6,7 @@ import Layout from '@/components/Layout'
 import { Provider } from 'react-redux';
 import store from '@/feature/store';
 
-const poppins = Noto_Sans({
+const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
   weight: ['300', '400', '500', '600', '700']

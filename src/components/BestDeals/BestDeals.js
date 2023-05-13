@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from "swiper";
 import 'swiper/css';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
+import CountDown from '../CountDown/CountDown';
 
 // Deals image
 import deals_img from '../../../public/images/best-deals/deals-img.png'
@@ -31,20 +32,7 @@ function BestDeals(props) {
                             <div className="flex flex-col md:flex-row md:items-center">
                                 <h2 className="section-title pr-16">Deals Of The Day</h2>
                                 {/* Countdown Section */}
-                                <div className="flex items-center mt-5 md:mt-0">
-                                    <span>Ends after: </span>
-                                    <div className="bg-primary inline-flex ml-3 text-white">
-                                        <div className="w-[50px] text-white center-child">
-                                            <span>07</span>h
-                                        </div> :
-                                        <div className="w-[50px] text-white center-child">
-                                            <span>38</span>m
-                                        </div> :
-                                        <div className="w-[50px] text-white center-child">
-                                            <span>38</span>s
-                                        </div>
-                                    </div>
-                                </div>
+                                <CountDown />
                             </div>
                             <div className="text-black text-right mt-3 sm:mt-0">
                                 <Link href="/about">
