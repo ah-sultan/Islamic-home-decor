@@ -31,16 +31,6 @@ export async function getServerSideProps(context) {
 }
 
 
-export async function getStaticPath() {
-    const res = await fetch('https://fakestoreapi.com/products');
-    const ids = product.map((item) => item.id)
-    const path = ids.map((id) => ({ params: { id: id.toString() } }))
-    return {
-        path,
-        fallback: false
-    };
-}
-
 
 
 
