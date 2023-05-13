@@ -15,7 +15,7 @@ function Breadcrumb(props) {
                                     return (
                                         <li ld={props.pages.length} key={index} className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]">
                                             
-                                            {index === props.pages.length - 1? <span>{title}</span> : <Link href={title}>{title}</Link>}
+                                            {index === props.pages.length - 1? <span className="line-clamp-1">{title}</span> : <Link className="line-clamp-1" href={title}>{title}</Link>}
                                             
                                         </li>
                                     )
