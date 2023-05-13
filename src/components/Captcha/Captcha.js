@@ -8,7 +8,7 @@ const Captcha = () => {
 
   useEffect(() => {
     generateCaptcha();
-  }, [captchaText]);
+  });
 
   const generateCaptcha = () => {
     const canvas = canvasRef.current;
