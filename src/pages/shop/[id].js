@@ -17,7 +17,7 @@ function singleProduct({ product, relatedProduct }) {
 export default singleProduct
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const res = await fetch('https://fakestoreapi.com/products/' + context.params.id);
     const resReletedProduct = await fetch('https://fakestoreapi.com/products');
     const product = await res.json()
@@ -30,6 +30,19 @@ export async function getServerSideProps(context) {
     };
 }
 
+
+
+export async function getStaticPaths(context) {
+    const res = await fetch('https://fakestoreapi.com/products');
+    const product = await res.json()
+    const ids = product.map((product) => product.id)
+    const paths = ids.map((id) => ({params : {id : id.toString()}}))
+
+    return {
+        paths,
+        fallback : false
+    };
+}
 
 
 
