@@ -12,7 +12,6 @@ import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 
 function ProductCard(props) {
-    const pathname = usePathname();
     const rate = Math.floor(props.rating.rate)
     const discount = 10
     const totalDiscount = props.price - discount / 10
@@ -21,21 +20,14 @@ function ProductCard(props) {
     // Quick view Handler
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (false) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-    })
-
     return (
         <>
             <div className="w-full group/bar">
-                <div className="w-full h-[240px] border bg-white overflow-hidden center-child relative">
+                <div className="w-full h-[340px] border bg-white overflow-hidden center-child relative p-1">
                     <Image src={props.image} alt="product-image" width={270} height={150} className="max-h-full" />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
-                    <div className="group-hover/bar:translate-y-0 trns-1 w-full center-child gap-x-3 translate-y-14 py-1 border-t-2 bg-white border-primary absolute bottom-0 left-0 right-0">
+                    {/* Card Bar */}
+                    <div className="group-hover/bar:translate-y-0 trns-1 w-full center-child gap-x-3 lg:translate-y-14 py-1 border-t-2 bg-white border-primary absolute bottom-0 left-0 right-0">
                         <button onClick={() => dispatch(showQuickView(props))} className="w-8 h-8 rounded-full center-child text-xl text-gray-400 hover:bg-primary hover:text-white">
                             <AiFillEye />
                         </button>
@@ -68,7 +60,7 @@ function ProductCard(props) {
                         </div>
                         <span className="inline-block pl-3 text-blue-400 text-sm">{props.rating.count} reviews</span>
                     </div>
-                    <div className="">
+                    <div>
                         <span className="text-primary">
                             ${props.price}
                         </span>

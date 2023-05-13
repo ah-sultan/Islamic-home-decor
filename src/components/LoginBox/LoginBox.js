@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import Link from 'next/link'
 import ModalOverlay from '../ModalOverlay/ModalOverlay'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -6,12 +6,20 @@ import { FaFacebookF, FaGoogle } from 'react-icons/fa'
 
 
 function LoginBox(props) {
+    useEffect(() => {
+        if(props.showLoginBox){
+            document.body.style.overflow = 'hidden'
+        }else{
+            document.body.style.overflow = 'unset'
+        }
+    })
+
     return (
         <>
 
             <div>
                 <ModalOverlay showModalOverlay={props.showLoginBox} />
-                <div className={` w-[320px] md:w-[400px] fixed left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-50 trns-1 duration-500 ${props.showLoginBox ? 'top-1/2 visible opacity-100' : 'top-0 invisible opacity-0'}`}>
+                <div className={` w-[320px] md:w-[400px] fixed left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-[160] trns-1 duration-500 ${props.showLoginBox ? 'top-1/2 visible opacity-100' : 'top-0 invisible opacity-0'}`}>
                     <div className="bg-primary px-5 md:px-8 py-3.5 flex justify-between items-center">
                         <h6 className="text-white text-xl">Login</h6>
                         <button type="button" onClick={() => props.LoginBoxHandler(false)}>

@@ -41,10 +41,12 @@ function SiteCartCard(props) {
 
 function SideCart(props) {
 
+    const showCart = props.showCart
+
+
     // Redux features
     const cartData = useSelector((state) => state.cart)
 
-    const showCart = props.showCart
 
     const getTotalQuantity = () => {
         let total = 0

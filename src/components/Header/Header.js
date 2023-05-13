@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SideCart from "../SideCart/SideCart"
 import LogoBar from "./LogoBar"
 import Navbar from "./Navbar"
@@ -9,6 +9,14 @@ import MobileNav from "./MobileNav/MobileNav"
 function Header() {
     const [showCart, setShowCart] = useState(false)
     const [showLoginBox, setShowLoginBox] = useState(false)
+
+    useEffect(() => {
+        if(showLoginBox || showCart){
+            document.body.style.overflow = 'hidden'
+        }else{
+            document.body.style.overflow = 'unset'
+        }
+    })
 
     const cartHandler = (value) => {
         setShowCart(value)
