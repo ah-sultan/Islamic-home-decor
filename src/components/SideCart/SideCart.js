@@ -55,8 +55,6 @@ function SideCart(props) {
         return total
     }
 
-    console.log()
-
     return (
         <>
             <Overlay showOverlay={showCart} />
