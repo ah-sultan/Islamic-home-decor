@@ -13,7 +13,7 @@ function Breadcrumb(props) {
                             {
                                 props.pages.map((title, index) => {
                                     return (
-                                        <li ld={props.pages.length} key={index} className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]" key={index}>
+                                        <li ld={props.pages.length} key={index} className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]">
                                             
                                             {index === props.pages.length - 1? <span>{title}</span> : <Link href={title}>{title}</Link>}
                                             
