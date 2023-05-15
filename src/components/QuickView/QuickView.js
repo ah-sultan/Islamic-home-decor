@@ -19,30 +19,26 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hideQuickView } from '@/feature/QuickView/quickViewSlice';
 import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
 
+// Const data 
+import products from '../../data/product'
 
-
-function QuickView(props) {
+function QuickView({product}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [count, setCount] = useState(0)
-    
+    console.log(product)
     // Tostify Message
     const notify = () => toast("Product Added To Cart");
-
-    console.log(props.product)
-
-    const product = props.product
-    const images = Array(5).fill(product.image)
+    const images = product.image
     const rate = Math.floor(product?.rating.rate)
     const discount = 10
     const discountprice = product.price - discount / 10
 
     const cartItem = {
-        id : props.product.id,
-        title : props.product.title,
-        thumbnail : props.product.image,
-        price : props.product.price,
-        size: 'xl',
-        color: 'red'
+        id : product.id,
+        title : product.title,
+        thumbnail : product.thumbnail,
+        price : product.price,
+        size: product.size,
     }
 
     // Redux Feature ===============
@@ -81,7 +77,8 @@ function QuickView(props) {
             <div className="w-full lg:container lg:center-child h-full overflow-scroll py-10 sm:py-20 lg:py-0">
                 <div className="bg-white w-11/12 sm:w-10/12 mx-auto p-6 md:p-8 relative">
                     <div className="flex flex-col lg:flex lg:flex-row gap-y-7 gap-x-8 items-start">
-                        {/* Images Section */}
+                        
+                        {/* Images Section ================================*/}
                         <div className="w-full lg:w-5/12">
                             <div className="border">
                                 {/* Main Image Section */}
@@ -140,7 +137,7 @@ function QuickView(props) {
                                     </button>
                             </div>
                             <h4 className="text-xl leading-normal font-medium text-black mb-3">{product.title}</h4>
-                            <h6 className="text-primary text-lg leading-relaxed mb-2">${product.price} <span className="text-gray-500"><del>${discountprice}</del></span></h6>
+                            <h6 className="text-primary text-lg leading-relaxed mb-2">${product.price.toFixed(2)} <span className="text-gray-500"><del>${discountprice.toFixed(2)}</del></span></h6>
                             {/* Reviews Section */}
                             <div>
                                 <div className="inline-flex gap-x-1.5 mr-3">
@@ -160,7 +157,7 @@ function QuickView(props) {
                                 <span className="text-sm leading-relaxed font-semibold text-gray-800 inline-block mr-4">Color:</span>
                                 <div>
                                     {
-                                        props.variable ? product.colorHex.map((color, id) => {
+                                        product.variable ? product.colorHex.map((color, id) => {
                                             return <button key={id} className={`w-6 h-6 rounded-full mr-1.5 border border-gray-300`} style={{ background: 'red' }}></button>
                                         }) : 'No Colors'
                                     }
@@ -171,7 +168,7 @@ function QuickView(props) {
                                 <span className="text-sm leading-relaxed font-semibold text-gray-800 inline-block min-w-[70px]">Size:</span>
                                 <div>
                                     {
-                                        props.variable ? product.size.map((size, id) => {
+                                        product.variable ? product.size.map((size, id) => {
                                             return <button key={id} className={`w-7  mr-2 text-sm text-gray-800 uppercase font-semibold`}>{size}</button>
                                         }) : 'No Size'
                                     }
@@ -220,3 +217,15 @@ function QuickView(props) {
 
 
 export default QuickView
+
+
+
+export async function getServerSide(context) {
+  const res = await products.context.params.props.id
+  const product = await res.json()
+  return {
+    props: {
+      product: product
+    },
+  };
+}

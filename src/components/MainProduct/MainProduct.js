@@ -1,14 +1,22 @@
-import ProductCard from "../ProductCard/ProductCard"
 import Image from "next/image"
+import { useState } from "react";
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import 'swiper/css';
 
+import ProductCard from "../ProductCard/ProductCard"
+
+// Data 
+import maincategories from '../../data/maincategories'
+
 // images 
 import productImage from '../../../public/images/main-product/banner-img.png'
 import ProductMiniCard from "../ProductMiniCard/ProductMiniCard";
+
+
 function MainProduct(props) {
+    const [title, setTitle] = useState('Home')
     const recommendedProduct = props.product.slice(1, 8)
     return (
         <>
@@ -16,12 +24,11 @@ function MainProduct(props) {
                 <div className="container">
                     <div className="border bg-white shadow-sm">
                         <div className="md:flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
-                            <h2 className="section-title mr-16">Consumer Electric</h2>
+                            <h2 className="section-title mr-16">{title}</h2>
                             <ul className="flex flex-wrap items-center md:justify-end gap-3 md:gap-x-6 mt-4 md:mt-0">
                                 {
-                                    // Menu Section
-                                    ['Electronics', 'Audios & Theaters', 'Camera', 'TV & Videos'].map((title, index) => (
-                                        <li key={index} className="text-black text-sm hover:text-accent">{title}</li>
+                                    maincategories.map((list, index) => (
+                                        <li key={index} className="text-black text-sm hover:text-accent" onClick={() => setTitle(list.title)}>{list.title}</li>
                                     ))
                                 }
                             </ul>
@@ -73,10 +80,6 @@ function MainProduct(props) {
                                                 slidesPerView: 3,
                                                 spaceBetween: 24
                                             },
-
-                                            1200: {
-                                                slidesPerView: 4,
-                                            }
                                         }}
 
 

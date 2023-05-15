@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import img1 from '../../../public/images/cart/cartImg.jpg'
 import Overlay from '../Overlay/Overlay'
 import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'

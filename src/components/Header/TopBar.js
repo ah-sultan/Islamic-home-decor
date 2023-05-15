@@ -1,22 +1,14 @@
+import Link from 'next/link'
 import React from 'react'
 
 const list = [
     {
-        title: 'Call: 09678-300400',
-        url: 'Call: 09678-300400'
+        title: 'Call: +1 (347) 302-8751',
+        url: 'tel: +1(347)302-8751'
     },
     {
-        title: 'FB',
-        url: 'FB'
-    },
-
-    {
-        title: 'FB gropup',
-        url: 'FB'
-    },
-    {
-        title: 'PAY NOW',
-        url: 'PAY NOW'
+        title: 'Whatsapp',
+        url: 'http://wa.me/+13473028751'
     },
 
 ]
@@ -32,7 +24,7 @@ function TopBar() {
                             {
                                 list.map((list, index) => (
                                     <li key={index} className=" font-light text-xs lg:text-sm relative after:absolute after:content-['|'] after:-right-2 lg:after:-right-3.5 after:top-1/2 after:-translate-y-1/2 last:after:content-none">
-                                        <a href={list.url}>{list.title}</a>
+                                        <Link target='blank' href={list.url}>{list.title}</Link>
                                     </li>
                                 ))
                             }

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Living Room",
+        "url": "/living-room"
+      },
+      {
+        "id": 2,
+        "title": "Bedroom",
+        "url": "/bedroom"
+      },
+      {
+        "id": 3,
+        "title": "Dining",
+        "url": "/dining"
+      },
+      {
+        "id": 4,
+        "title": "Wall Craft",
+        "url": "/wall-craft"
+      }
+]

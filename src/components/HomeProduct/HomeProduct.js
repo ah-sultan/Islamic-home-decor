@@ -23,7 +23,7 @@ function HomeProduct(props) {
                             {
                                 products.map((data, index) => {
                                     return (
-                                        <ProductCard id={data.id} key={index} image={data.image} title={data.title} rating={data.rating} price={data.price} description={data.description}/>
+                                        <ProductCard id={data.id} key={index} image={data.image} thumbnail={data.thumbnail} title={data.title} rating={data.rating} price={data.price} description={data.description}/>
 
                                     )
                                 })

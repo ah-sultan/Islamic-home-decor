@@ -8,7 +8,7 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import CountDown from '../CountDown/CountDown';
 
 // Deals image
-import deals_img from '../../../public/images/best-deals/deals-img.png'
+import deals_img from '../../../public/images/best-deals/deals-img.webp'
 import Image from 'next/image';
 
 function BestDeals(props) {
@@ -35,7 +35,7 @@ function BestDeals(props) {
                                 <CountDown />
                             </div>
                             <div className="text-black text-right mt-3 sm:mt-0">
-                                <Link href="/about">
+                                <Link href="/shop">
                                     View All
                                 </Link>
                             </div>
@@ -68,12 +68,12 @@ function BestDeals(props) {
                                     },
 
                                     1024: {
-                                        slidesPerView: 4,
+                                        slidesPerView: 3,
                                         spaceBetween: 24,
                                     },
 
                                     1200: {
-                                        slidesPerView: 5,
+                                        slidesPerView: 4,
                                         spaceBetween: 24,
                                     }
 

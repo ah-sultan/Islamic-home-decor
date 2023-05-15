@@ -13,7 +13,7 @@ function TopNav() {
                             <Link href={list.url}>
                                 <div className="flex item-center gap-x-1 xl:gap-x-3.5 text-white py-3">
                                     <span className="text-sm xl:text-base leading-none">{list.title}</span>
-                                    <BiChevronDown className="text-lg xl:text-xl" />
+                                    {list.dropdown ? <BiChevronDown className="text-lg xl:text-xl" /> : null } 
                                 </div>
                             </Link>
 
@@ -25,9 +25,9 @@ function TopNav() {
                     ))
                 }
                 <li>
-                    <Link href="dropShipping">
+                    <Link href="/shop">
                         <span className="text-nav xl:font-semibold xl:text-base underline ml-2.5">
-                            Start Dropshipping
+                            Visit Shop
                         </span>
                     </Link>
                 </li>

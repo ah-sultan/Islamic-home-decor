@@ -6,31 +6,30 @@ import BannerImg from "@/components/BannerImg/BannerImg"
 import HomeProduct from "@/components/HomeProduct/HomeProduct"
 
 // images ===========
-import bannerImg from '../../public/images/banner-img/banner-img.jpg'
+import product from '../../src/data/product'
 
 
-export default function Home({ product }) {
+export default function Home() {
   return (
     <>
       <Meta />
       <Hero />
       <BestDeals product={product.slice(1, 7)} />
       <MainProduct product={product} />
-      <BannerImg img={bannerImg} />
       <HomeProduct product={product} />
 
     </>
   )
 }
 
-export async function getStaticProps(context) {
-  const res = await fetch('https://fakestoreapi.com/products')
-  const product = await res.json()
-  return {
-    props: {
-      product: product
-    },
-  };
-}
+// export async function getStaticProps(context) {
+//   const res = await fetch('https://fakestoreapi.com/products')
+//   const product = await res.json()
+//   return {
+//     props: {
+//       product: product
+//     },
+//   };
+// }
 
 

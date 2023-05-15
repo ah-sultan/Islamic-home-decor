@@ -13,7 +13,7 @@ import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 function ProductCard(props) {
     const rate = Math.floor(props.rating.rate)
-    const discount = 10
+    const discount = 0
     const totalDiscount = props.price - discount / 10
 
 
@@ -23,8 +23,8 @@ function ProductCard(props) {
     return (
         <>
             <div className="w-full group/bar">
-                <div className="w-full h-[340px] border bg-white overflow-hidden center-child relative p-1">
-                    <Image src={props.image} alt="product-image" width={270} height={150} className="max-h-full" />
+                <div className="w-full h-[280px] border bg-gray-300 overflow-hidden center-child relative">
+                    <Image src={props.thumbnail} alt="product-image" width={270} height={150} className="" />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
                     {/* Card Bar */}
                     <div className="group-hover/bar:translate-y-0 trns-1 w-full center-child gap-x-3 lg:translate-y-14 py-1 border-t-2 bg-white border-primary absolute bottom-0 left-0 right-0">
@@ -62,10 +62,10 @@ function ProductCard(props) {
                     </div>
                     <div>
                         <span className="text-primary">
-                            ${props.price}
+                            ${props.price.toFixed(2)}
                         </span>
                         <del className="inline-block pl-2 text-sm text-gray-400">
-                            {totalDiscount.toFixed(2)}$
+                            ${totalDiscount.toFixed(2)}
                         </del>
                     </div>
                 </div>

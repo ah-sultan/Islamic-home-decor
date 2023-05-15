@@ -24,7 +24,7 @@ function Navbar() {
                             <BiPhoneCall className="text-nav" />
                             <span className="text-nav">
                                 Hotline:
-                                <span className="xl:font-medium"> 09678-300400</span>
+                                <span className="xl:font-medium"> +1 (347) 302-8751</span>
                             </span>
                         </div>
                     </div>
