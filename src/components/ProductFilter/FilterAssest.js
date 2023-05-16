@@ -1,9 +1,9 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { SideNavData } from "../SideNav/SideNavData"
 import { BiChevronDown } from 'react-icons/bi'
 
+import categories from '../../data/categories'
 
 export function CeatgoryAssest() {
     const [ShowSubnav, SetShowSubnav] = useState(false);
@@ -20,7 +20,7 @@ export function CeatgoryAssest() {
                 <div className={`mt-2 pl-3 overflow-hidden trns-1 ${ShowSubnav ? 'hidden' : 'block'}`}>
                     <ul>
                         {
-                            SideNavData.map((list, index) => {
+                            categories.map((list, index) => {
                                 return (
                                     <li key={index} className="text-sm mb-3">
                                         <Link href={list.url}>{list.title}</Link>

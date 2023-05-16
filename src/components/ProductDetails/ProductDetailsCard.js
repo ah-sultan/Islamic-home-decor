@@ -26,7 +26,7 @@ function ProductDetailsCard(props) {
     const notify = () => toast("Product Added To Cart");
 
     const product = props.product
-    const images = Array(5).fill(product.image)
+    const images = product.image
     const rate = Math.floor(product.rating.rate)
     const discount = 10
     const discountprice = product.price - discount / 10
@@ -36,7 +36,7 @@ function ProductDetailsCard(props) {
         title : props.product.title,
         thumbnail : props.product.image,
         price : props.product.price,
-        size: 'xl',
+        size: props.size,
         color: 'red'
     }
 
@@ -126,7 +126,7 @@ function ProductDetailsCard(props) {
                 {/* Text Section  */}
                 <div className="w-full sm:w-[600px] mx-auto lg:w-6/12 mt-8 lg:mt-0">
                     <h4 className="text-lg xs:text-2xl leading-normal font-medium text-black mb-3 sm:mb-5">{product.title}</h4>
-                    <h6 className="text-primary text-lg xs:text-2xl leading-relaxed mb-3 sm:mb-5">${product.price} <span className="text-gray-500"><del>${discountprice}</del></span></h6>
+                    <h6 className="text-primary text-lg xs:text-2xl leading-relaxed mb-3 sm:mb-5">${product.price.toFixed(2)} <span className="text-gray-500"><del>${discountprice.toFixed(2)}</del></span></h6>
                     {/* Reviews Section */}
                     <div>
                         <div className="inline-flex gap-x-1.5 mr-3">
@@ -146,7 +146,7 @@ function ProductDetailsCard(props) {
                         <span className="sm:text-lg leading-relaxed font-semibold text-gray-800 inline-block mr-4">Color:</span>
                         <div>
                             {
-                                props.variable ? product.colorHex.map((color, id) => {
+                                product.color?.length > 0 ? product.color.map((color, id) => {
                                     return <button key={id} className={`w-7 h-7 rounded-full mr-2 border border-gray-300`} style={{ background: 'red' }}></button>
                                 }) : 'No Colors'
                             }
@@ -157,9 +157,10 @@ function ProductDetailsCard(props) {
                         <span className="sm:text-lg leading-relaxed font-semibold text-gray-800 inline-block min-w-[70px]">Size:</span>
                         <div>
                             {
-                                props.variable ? product.size.map((size, id) => {
-                                    return <button key={id} className={`w-7  mr-2 text-base text-gray-800 uppercase font-semi-bold`}>{size}</button>
-                                }) : 'No Size'
+                                
+                                product.size?.length > 0 ? product.size.map((size, index) => {
+                                    return <buttohn key={index} className={`mr-2 text-base text-gray-800 uppercase font-semi-bold`}>{size}</buttohn>
+                                }) : 'No Varient Size'
                             }
                         </div>
                     </div>

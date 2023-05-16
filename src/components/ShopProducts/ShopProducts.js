@@ -41,11 +41,11 @@ function ShopProducts(props) {
                             {/* Shop Grid View ============== */}
 
                             <div className={`mt-8 overflow-hidden trns-1 ${productView === 'grid' ? 'visible opacity-100 h-auto' : 'invisible opacity-0 h-0'}`}>
-                                <div className="grid xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8">
+                                <div className="grid xs:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8">
                                     {
                                         props.products.map((data, index) => {
                                             return (
-                                                <ProductCard key={index} id={data.id} image={data.image} title={data.title} rating={data.rating} price={data.price} />
+                                                <ProductCard key={index} id={data.id} thumbnail={data.thumbnail} image={data.image} title={data.title} rating={data.rating} price={data.price} />
                                             )
                                         })
                                     }
@@ -59,7 +59,7 @@ function ShopProducts(props) {
                                         gridProduct.map((data, index) => {
                                             return (
                                                 <li key={index} className="mt-5 first:mt-0">
-                                                    <ProductListCard img={data.image} title={data.title} description={data.description} rating={data.rating} price={data.price} />
+                                                    <ProductListCard id={data.id} thumbnail={data.thumbnail} image={data.image} title={data.title} description={data.description} rating={data.rating} price={data.price} />
                                                 </li>
                                             )
                                         })

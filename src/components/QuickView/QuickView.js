@@ -25,9 +25,12 @@ import products from '../../data/product'
 function QuickView({product}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [count, setCount] = useState(0)
-    console.log(product)
+
+
     // Tostify Message
     const notify = () => toast("Product Added To Cart");
+
+    
     const images = product.image
     const rate = Math.floor(product?.rating.rate)
     const discount = 10
@@ -218,14 +221,3 @@ function QuickView({product}) {
 
 export default QuickView
 
-
-
-export async function getServerSide(context) {
-  const res = await products.context.params.props.id
-  const product = await res.json()
-  return {
-    props: {
-      product: product
-    },
-  };
-}

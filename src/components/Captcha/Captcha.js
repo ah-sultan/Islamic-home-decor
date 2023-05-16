@@ -6,9 +6,7 @@ const Captcha = () => {
   const [captchaText, setCaptchaText] = useState('');
   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    generateCaptcha();
-  });
+ 
 
   const generateCaptcha = () => {
     const canvas = canvasRef.current;
@@ -32,6 +30,10 @@ const Captcha = () => {
 
     setCaptchaText(captcha);
   };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
 
   const getRandomColor = () => {
     const colors = ['#333', 'red', '#555', 'green', '#777', 'blue', '#999'];

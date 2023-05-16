@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { SideNavData } from '../SideNav/SideNavData'
 import Link from 'next/link'
 import { BiChevronDown } from 'react-icons/bi'
+
+// Data
+import categories from '../../data/categories'
 
 function CetagoryMenu() {
     const [ShowSubnav, SetShowSubnav] = useState(false);
@@ -18,7 +20,7 @@ function CetagoryMenu() {
                 <h6 className="uppercase text-lg mb-3 border-b border-gray-200">Categories</h6>
                 <ul>
                     {
-                        SideNavData.map((list, index) => {
+                        categories.map((list, index) => {
                             return (
                                 <li className="text-black text-sm  mb-3 last:mb-0" key={index}>
                                     <div className=" justify-between items-center flex hover:text-accent">

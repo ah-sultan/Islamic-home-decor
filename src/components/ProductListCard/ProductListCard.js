@@ -4,6 +4,9 @@ import Link from "next/link"
 import {AiFillEye, AiOutlineHeart} from 'react-icons/ai'
 import { FaStar} from 'react-icons/fa'
 
+// Redux Features
+import { useDispatch } from "react-redux"
+import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 
 function ProductListCard(props) {
@@ -11,12 +14,14 @@ function ProductListCard(props) {
     const discount = 10
     const totalDiscount = props.price - discount / 10
 
+    // Redux feature 
+    const dispatch = useDispatch()
     
     return (
         <>
-            <div className="w-full flex flex-col gap-y-10 md:flex-row gap-x-8 px-4 py-8 md:p-8 border border-transparent hover:border-gray-300">
+            <div className="w-full flex flex-col gap-y-10 md:flex-row gap-x-8 px-4 py-8 md:p-6 border border-transparent hover:border-gray-300">
                 <div className="w-full md:w-3/12 center-child relative">
-                    <Image src={props.img} alt="product-image" width={270} height={150} />
+                    <Image src={props.thumbnail} alt="product-image" width={270} height={450} />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
                 </div>
 
@@ -44,16 +49,16 @@ function ProductListCard(props) {
                   <div className="w-full md:w-3/12">
                       <div>
                           <span className="text-primary text-lg">
-                              ${props.price}
+                              ${props.price.toFixed(2)}
                           </span>
                           <del className="inline-block pl-2 text-base text-gray-400">
                               {totalDiscount.toFixed(2)}$
                           </del>
                       </div>
                       <div className="flex gap-x-5 items-center mt-2">
-                          <button className="flex items-center text-black  hover:text-primary">
+                          <button onClick={() => dispatch(showQuickView(props))} className="flex items-center text-black  hover:text-primary">
                                 <AiFillEye/>
-                                <span className="capitalize text-sm pl-2">Wishlist</span>
+                                <span className="capitalize text-sm pl-2">View</span>
                           </button>
                           <button className="flex items-center text-black  hover:text-primary">
                           <AiOutlineHeart/>

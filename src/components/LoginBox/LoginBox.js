@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import ModalOverlay from '../ModalOverlay/ModalOverlay'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -6,6 +6,10 @@ import { FaFacebookF, FaGoogle } from 'react-icons/fa'
 
 
 function LoginBox(props) {
+    const [formData, setFormData] = useState(null)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     useEffect(() => {
         if(props.showLoginBox){
             document.body.style.overflow = 'hidden'
@@ -13,6 +17,16 @@ function LoginBox(props) {
             document.body.style.overflow = 'unset'
         }
     })
+
+    // Form Data 
+    const submitFormdata = (e) => {
+        e.preventDefault()
+
+            setFormData({
+                email : email,
+                password : password,
+            })
+    }
 
     return (
         <>
@@ -27,11 +41,11 @@ function LoginBox(props) {
                         </button>
                     </div>
                     <div className="px-5 md:px-8 py-7 md:py-10">
-                        <div>
-                            <input type="Email" placeholder="Email" className="form-input mb-5" />
-                            <input type="password" placeholder="Password" className="form-input" />
+                        <form onSubmit={submitFormdata}>
+                            <input type="email" placeholder="Email" className="form-input mb-5" onChange={(e) => setEmail(e.target.value)} />
+                            <input type="password" placeholder="Password" className="form-input"  onChange={(e) => setPassword(e.target.value)} />
                             <button type="submit" className="bg-accent py-3 text-center w-full mt-6">Login</button>
-                        </div>
+                        </form>
                         <div className="text-right pt-2 pb-6">
                             <Link href="#" className="text-sm text-blue-500 underline"> Forgot Password</Link>
                         </div>
