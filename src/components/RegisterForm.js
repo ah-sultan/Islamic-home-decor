@@ -1,3 +1,4 @@
+import { useState,useRef } from "react";
 import Captcha from "@/components/Captcha/Captcha";
 
 function RegisterForm() {
