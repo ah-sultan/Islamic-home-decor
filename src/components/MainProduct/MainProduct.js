@@ -105,7 +105,7 @@ function MainProduct(props) {
                                             recommendedProduct.map((data, index) => {
                                                 return (
                                                     <div key={index} className="mt-5 ">
-                                                        <ProductMiniCard img={data.image} title={data.title} price={data.price} />
+                                                        <ProductMiniCard img={data.thumbnail} title={data.title} price={data.price} />
                                                     </div>
                                                 )
                                             })
