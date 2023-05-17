@@ -20,7 +20,7 @@ function ProductMiniCard(props) {
             </Link>
             <div>
                 <span className="text-primary">
-                    ${props.price}
+                    ${props.price.toFixed(2)}
                 </span>
                 <del className="inline-block pl-2 text-sm text-gray-400">
                     {totalDiscount.toFixed(2)}$
