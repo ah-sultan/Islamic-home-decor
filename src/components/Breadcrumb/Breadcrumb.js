@@ -6,16 +6,18 @@ function Breadcrumb(props) {
         <>
             <section className="py-2.5 bg-gray-200">
                 <div className="container">
-                    <ul className='flex '>
-                        <li className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]" >
+                    <ul className='flex items-center'>
+                        <li className="text-sm text-blue-400 last:text-black capitalize" >
                             <Link href='/'>home</Link>
                         </li>
                             {
                                 props.pages.map((title, index) => {
                                     return (
-                                        <li ld={props.pages.length} key={index} className="text-sm text-blue-400 last:text-black capitalize after:content-['/'] after:inline-block after:px-1.5 after:last:content-[none]">
+                                        <li ld={props.pages.length} key={index} className="flex items-center text-sm text-blue-400 capitalize before:content-['/'] before:inline-block before:px-2">
                                             
-                                            {index === props.pages.length - 1? <span className="line-clamp-1">{title.substring(40)}</span> : <Link className="line-clamp-1" href={title}>{title}</Link>}
+                                            {index === props.pages.length - 1? <span className="text-black">{
+                                                title.length === 15? title.substring(40) : title
+                                            }</span> : <Link className="line-clamp-1" href={title}>{title}</Link>}
                                             
                                         </li>
                                     )

@@ -1,9 +1,22 @@
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb"
 import Link from "next/link"
+import { useRef } from "react"
 import { FaFacebookF, FaGoogle } from 'react-icons/fa'
-import { FiRefreshCcw } from 'react-icons/fi'
 
 function login() {
+    const [formData, setFormData] = useState(null)
+
+    const email = useRef()
+    const password = useRef()
+
+    const formSubmit = (e)=> {
+        e.preventDefault()
+        setFormData({
+            email: email.current.value,
+            password : password.current.value,
+        })
+    }
+
     return (
         <>  
         <Breadcrumb pages={['login']}/>
@@ -14,11 +27,11 @@ function login() {
                         <h6 className="text-white text-xl">Login</h6>
                     </div>
                     <div className="px-5 md:px-8 py-7 md:py-10">
-                        <div>
-                            <input type="Email" placeholder="Email" className="form-input mb-5" />
-                            <input type="password" placeholder="Password" className="form-input" />
+                        <form onSubmit={formSubmit}>
+                            <input ref={email} type="Email" placeholder="Email" className="form-input mb-5" />
+                            <input ref={password} type="password" placeholder="Password" className="form-input" />
                             <button type="submit" className="bg-accent py-3 text-center w-full mt-6">Login</button>
-                        </div>
+                        </form>
                         <div className="text-right pt-4 pb-8">
                             <Link href="#" className="text-sm text-blue-500 underline"> Forgot Password</Link>
                         </div>
