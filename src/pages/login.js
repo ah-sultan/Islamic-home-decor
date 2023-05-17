@@ -3,7 +3,8 @@ import Link from "next/link"
 import { useRef } from "react"
 import { FaFacebookF, FaGoogle } from 'react-icons/fa'
 
-function login() {
+
+function LoginForm(){
     const [formData, setFormData] = useState(null)
 
     const email = useRef()
@@ -16,6 +17,20 @@ function login() {
             password : password.current.value,
         })
     }
+    return(
+        <>
+            <form onSubmit={formSubmit}>
+                <input ref={email} type="Email" placeholder="Email" className="form-input mb-5" />
+                <input ref={password} type="password" placeholder="Password" className="form-input" />
+                <button type="submit" className="bg-accent py-3 text-center w-full mt-6">Login</button>
+            </form>
+        </>
+    )
+}
+
+
+function login() {
+
 
     return (
         <>  
@@ -27,11 +42,8 @@ function login() {
                         <h6 className="text-white text-xl">Login</h6>
                     </div>
                     <div className="px-5 md:px-8 py-7 md:py-10">
-                        <form onSubmit={formSubmit}>
-                            <input ref={email} type="Email" placeholder="Email" className="form-input mb-5" />
-                            <input ref={password} type="password" placeholder="Password" className="form-input" />
-                            <button type="submit" className="bg-accent py-3 text-center w-full mt-6">Login</button>
-                        </form>
+                        {/* Login Form */}
+                        <LoginForm/>
                         <div className="text-right pt-4 pb-8">
                             <Link href="#" className="text-sm text-blue-500 underline"> Forgot Password</Link>
                         </div>
