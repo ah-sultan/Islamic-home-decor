@@ -19,8 +19,8 @@ function ProductListCard(props) {
     
     return (
         <>
-            <div className="w-full flex flex-col gap-y-10 md:flex-row gap-x-8 px-4 py-8 md:p-6 border border-transparent hover:border-gray-300">
-                <div className="w-full md:w-3/12 center-child relative">
+            <div className="w-full flex flex-col  md:flex-row gap-x-8 px-4 py-8 md:p-6 border border-transparent hover:border-gray-300">
+                <div className="w-full md:w-3/12 center-child relative mb-8 md:mb-0">
                     <Image src={props.thumbnail} alt="product-image" width={270} height={450} />
                     <span className="inline-blcok px-2  py-0.5 text-sm absolute right-0 top-0 text-white bg-primary">-{discount}%</span>
                 </div>
@@ -52,7 +52,7 @@ function ProductListCard(props) {
                               ${props.price.toFixed(2)}
                           </span>
                           <del className="inline-block pl-2 text-base text-gray-400">
-                              {totalDiscount.toFixed(2)}$
+                              ${totalDiscount.toFixed(2)}
                           </del>
                       </div>
                       <div className="flex gap-x-5 items-center mt-2">

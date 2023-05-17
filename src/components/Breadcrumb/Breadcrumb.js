@@ -16,7 +16,7 @@ function Breadcrumb(props) {
                                         <li ld={props.pages.length} key={index} className="flex items-center text-sm text-blue-400 capitalize before:content-['/'] before:inline-block before:px-2">
                                             
                                             {index === props.pages.length - 1? <span className="text-black">{
-                                                title.length === 15? title.substring(40) : title
+                                                title.length === 15? title.substring(1,15) : title.substring(0,30)
                                             }</span> : <Link className="line-clamp-1" href={title}>{title}</Link>}
                                             
                                         </li>

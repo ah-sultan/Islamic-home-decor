@@ -13,7 +13,7 @@ function Footer() {
                             <h6 className="footer-title">Contact US</h6>
                             <div>
                                 <span className="tex-sm text-gray-400">Call us 9am-11pm (Everyday)</span>
-                                <p className="text-2xl text-accent">09678-300400 </p>
+                                <p className="text-2xl text-accent">+1 (347) 302-8751</p>
                                 <p className="text-primary">Free Call any Time</p>
                                 <div className="mt-4 text-gray-400 text-sm leading-relaxed">
 
