@@ -31,7 +31,6 @@ function CheckoutBody() {
     const orderNotes = useRef()
     const paymentsMethode = useRef()
 
-    console.log(formData)
 
     const submitForm = (e) => {
         e.preventDefault()

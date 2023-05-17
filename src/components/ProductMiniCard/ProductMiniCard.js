@@ -12,7 +12,7 @@ function ProductMiniCard(props) {
     <>
     <div className="flex gap-x-2">
         <div className="w-3/12 center-child">
-            <Image src={props.img} alt="card-img" width={100} height={100} />
+            <Image src={props.thumbnail} alt="card-img" width={100} height={100} />
         </div>
         <div className="w-7/12">
             <Link href={props.title}>
