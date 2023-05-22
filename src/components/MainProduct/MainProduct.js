@@ -11,7 +11,7 @@ import ProductCard from "../ProductCard/ProductCard"
 import maincategories from '../../data/maincategories'
 
 // images 
-import productImage from '../../../public/images/main-product/banner-img.png'
+import productImage from '../../../public/images/main-product/banner-img.jpg'
 import ProductMiniCard from "../ProductMiniCard/ProductMiniCard";
 
 

@@ -61,11 +61,11 @@ function SideCart(props) {
             <Overlay showOverlay={showCart} />
             <div className={`fixed  w-[300px] sm:w-[400px] h-full z-[150] top-0 bottom-0 -right-[500px] duration-500 trns-1 invisible `} style={showCart ? { visibility: 'visible', right: '0' } : undefined}>
                 <div className="bg-white py-5 h-full grid px-4">
-                    <div className="max-h-full overflow-hidden grid self-start">
+                    <div className="max-h-full overflow-y-scroll overflow-x-hidden grid self-start">
                         {/* Cart Header Section =============== */}
                         <div className="flex justify-between mb-8 border-b border-gray-400 pb-2">
                             <h6 className="text-xl leading-relaxed font-medium">Your Cart Items: {getTotalQuantity() || 0}</h6>
-                            <button className="group/closeBtn w-5 h-5 relative" onClick={() => props.cartHandler(false)}>
+                            <button className="group/closeBtn w-5 h-5 relative mr-8" onClick={() => props.cartHandler(false)}>
                                 <AiOutlineClose className="group-hover/closeBtn:rotate-180 trns-1 text-2xl" />
                             </button>
                         </div>

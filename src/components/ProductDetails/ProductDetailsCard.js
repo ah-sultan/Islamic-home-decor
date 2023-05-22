@@ -28,13 +28,14 @@ function ProductDetailsCard(props) {
     const product = props.product
     const images = product.image
     const rate = Math.floor(product.rating.rate)
-    const discount = 10
+    const discount = 0
     const discountprice = product.price - discount / 10
+    console.log(props)
 
     const cartItem = {
         id : props.product.id,
         title : props.product.title,
-        thumbnail : props.product.image,
+        thumbnail : props.product.thumbnail,
         price : props.product.price,
         size: props.size,
         color: 'red'
@@ -185,7 +186,7 @@ function ProductDetailsCard(props) {
                     </div>
 
                     {/* info section */}
-                    <p className="text-base leading-relaxed text-tGreay-200 font-semibold">SKU <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.sku}</span></p>
+                    <p className="text-base leading-relaxed text-tGreay-200 font-semibold">Shipping:  <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.shipping === 0 ? 'shipping Free' : '$'+product.shipping}</span></p>
                     <p className="text-base leading-relaxed text-tGreay-200 font-semibold my-2.5">Categories: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.category}</span></p>
 
                     {/* Share */}

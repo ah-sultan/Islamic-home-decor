@@ -12,9 +12,9 @@ import product from '../data/product'
 function cetagory() {
     return (
         <>
-            <Meta title={`YouTube Studio Gears`}/>
+            <Meta title={`Islamic Home Decore Product`}/>
             <Breadcrumb pages={['shop']} />
-            <CetagoryTitle title="YouTube Studio Gears" description="YouTube Studio Gears Price in Bangladesh. BDSHOP.COM Offers you the Worl'ds Famous Microphone for Your Daily or Professional Needs." />
+            <CetagoryTitle title="Islamic Home Decore Product" description="Islamic Home Decore Product Are availbale in our shop" />
             <ShopProducts products={product} />
             <RecentView products={product.slice(0,4)} />
 

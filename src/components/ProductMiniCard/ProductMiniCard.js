@@ -5,7 +5,7 @@ import Link from "next/link"
 
 
 function ProductMiniCard(props) {
-    const discount = 10
+    const discount = 0
     const totalDiscount = props.price - discount / 10
 
   return (

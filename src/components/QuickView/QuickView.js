@@ -19,8 +19,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hideQuickView } from '@/feature/QuickView/quickViewSlice';
 import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
 
-// Const data 
-import products from '../../data/product'
 
 function QuickView({product}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -33,7 +31,7 @@ function QuickView({product}) {
     
     const images = product.image
     const rate = Math.floor(product?.rating.rate)
-    const discount = 10
+    const discount = 0
     const discountprice = product.price - discount / 10
 
     const cartItem = {
@@ -197,7 +195,6 @@ function QuickView({product}) {
                             </div>
 
                             {/* info section */}
-                            <p className="text-base leading-relaxed text-tGreay-200 font-semibold">SKU: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.sku}</span></p>
                             <p className="text-base leading-relaxed text-tGreay-200 font-semibold my-2.5">Categories: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.category}</span></p>
 
                             {/* Share */}

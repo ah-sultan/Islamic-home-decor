@@ -21,8 +21,8 @@ export default singleProduct
 
 
 export async function getStaticProps(context) {
-    const res = await fetch('https://api.npoint.io/d12e1ea8047bb1a65139/' + context.params.id);
-    const resReletedProduct = await fetch('https://api.npoint.io/d12e1ea8047bb1a65139');
+    const res = await fetch('https://api.npoint.io/113072e4cdfa0f1a3df2/' + context.params.id);
+    const resReletedProduct = await fetch('https://api.npoint.io/113072e4cdfa0f1a3df2');
     const product = await res.json()
     const reletedProduct = await resReletedProduct.json()
     return {
