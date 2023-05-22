@@ -51,7 +51,7 @@ function MobileNav(props) {
         </div>
       </div>
 
-      {/* Mobile Navbar */}
+      {/* Mobile Navbar ============================*/}
       <div className={`fixed w-full bg-w-full bg-[rgba(0,0,0,0.8)] top-0 bottom-0 left-0 origin-left trns-1 ${showNav ? 'scale-x-100' : 'scale-x-0'}`}>
         <button className="absolute top-3 right-4 text-white text-4xl" onClick={() => setShowNav(false)}>
           <BsArrowLeft />
@@ -68,7 +68,7 @@ function MobileNav(props) {
           <SideNav />
         </div>
       </div>
-      {/* Responsive Search Bosx */}
+      {/* Responsive Search Box =========================*/}
       <div className={`bg-white py-8 px-4 z-[100] fixed left-0 right-0 top-0 bottom-0 h-full w-full origin-top trns-1 ${showSerchBox ? 'scale-y-100' : 'scale-y-0'}`}>
         <div className="pb-4 text-right">
           <button onClick={() => setshowSerchBox(false)}>

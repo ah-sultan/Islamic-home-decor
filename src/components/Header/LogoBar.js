@@ -71,7 +71,7 @@ function LogoBar(props) {
                                     <AiOutlineHeart className="inline-block hover:text-primary text-gray-400 text-4xl" />
                                 </li>
 
-                                {/* cart handler icon */}
+                                {/* Cart Handler Button ========== */}
                                 <li className="relative">
                                     <button type="button" onClick={() => props.cartHandler(true)}>
                                         <AiOutlineShoppingCart className="inline-block hover:text-primary text-gray-400 text-4xl" />

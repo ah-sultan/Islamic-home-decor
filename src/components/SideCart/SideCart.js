@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Overlay from '../Overlay/Overlay'
 import { AiOutlineClose } from 'react-icons/ai'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
 // Redux Featuer
 import { useSelector, useDispatch } from 'react-redux'
@@ -10,6 +9,7 @@ import { incrementQuantity, decrementQuantity, removeItem } from '@/feature/Cart
 
 function SiteCartCard(props) {
 
+    // Redux Feature
     const dispatch = useDispatch()
 
     return (

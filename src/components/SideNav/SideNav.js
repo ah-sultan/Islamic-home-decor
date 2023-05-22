@@ -29,7 +29,7 @@ export default function SideNav() {
                             <div className="flex item-center justify-between">
                                 <Link href="/shop"  >{list.title}</Link>
                                 <button onClick={() => subNavToggler(index)}>
-                                {list.dropdown? <BiChevronRight className={`text-xl trns-1  lg:rotate-0 ${showSubNav === index ? '-rotate-90' : 'rotate-90'}`} /> : null }
+                                {list.dropdown ? <BiChevronRight className={`text-xl trns-1  lg:rotate-0 ${showSubNav === index ? '-rotate-90' : 'rotate-90'}`} /> : null }
                                 </button>
                             </div>
                             {
@@ -43,16 +43,6 @@ export default function SideNav() {
     )
 }
 
-export async function getServerSideProps(context) {
-    const res = await fetch('https://fakestoreapi.com/products')
-    const product = await res.json()
-    console.log(product)
-    return {
-        props: {
-            product: product
-        },
-    };
-}
 
 
 

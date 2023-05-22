@@ -10,8 +10,8 @@ import { showQuickView } from "@/feature/QuickView/quickViewSlice"
 
 
 function ProductListCard(props) {
-    const rate = 5
-    const discount = 10
+    const rate = props.rating.rate
+    const discount = 0
     const totalDiscount = props.price - discount / 10
 
     // Redux feature 

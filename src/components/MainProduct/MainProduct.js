@@ -36,7 +36,7 @@ function MainProduct(props) {
 
                         {/* Top Header Section */}
                         <div className="md:flex">
-                            {/* Left Side */}
+                            {/* Left Side =============*/}
                             <div className="w-full md:w-7/12 lg:w-8/12 xl:w-9/12">
                                 {/* Banner Images */}
                                 <div className="p-5">

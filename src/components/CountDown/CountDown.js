@@ -16,6 +16,10 @@ function CountDown() {
     };
 
 
+    // coundown Section
+
+    const targetDate = new Date('2023-06-01');
+
 
     return (
         <>
@@ -23,7 +27,7 @@ function CountDown() {
                 <p>Ends after:</p>
                 <div className="bg-primary py-1 px-2 text-white">
                     <Countdown
-                        date={Date.now() + 100000000}
+                        date={targetDate}
                         renderer={renderer}
                         daysInHours={true}
                     />
@@ -34,14 +38,3 @@ function CountDown() {
 }
 
 export default CountDown
-
-
-//     < div className = "w-[50px] text-white center-child" >
-//         <span>07</span>h
-//                     </ > :
-// <div className="w-[50px] text-white center-child">
-//     <span>38</span>m
-// </div> :
-// <div className="w-[50px] text-white center-child">
-//     <span>38</span>s
-// </div>

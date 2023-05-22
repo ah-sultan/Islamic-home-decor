@@ -57,7 +57,7 @@ function LoginBox(props) {
                             <span className="inline-block px-3 text-xl leading-none">OR</span>
                             <span className="block w-full h-px bg-gray-200"></span>
                         </div>
-                        {/* Social Media login*/}
+                        {/* Social Media login ===================*/}
                         <div>
                             <div className="mt-5">
                                 <Link href="/" className="flex items-center rounded-sm overflow-hidden">

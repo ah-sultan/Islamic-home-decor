@@ -27,9 +27,12 @@ function CetagoryMenu() {
                                         <Link href={`/shop`}>
                                             {list.title}
                                         </Link>
-                                        <button onClick={() => subnavHandler(index)}>
-                                            <BiChevronDown className={`text-lg trns-1 ${ShowSubnav && navIndex === index ? 'rotate-180' : 'rootate-0'}`} />
-                                        </button>
+                                        
+                                         {
+                                            list.dropdown ? <button onClick={() => subnavHandler(index)}>
+                                                            <BiChevronDown className={`text-lg trns-1 ${ShowSubnav && navIndex === index ? 'rotate-180' : 'rootate-0'}`} />
+                                            </button> : null
+                                         }
                                     </div>
                                     {
                                         list.dropdown ? <ul className={`mt-2 pl-4 ${ShowSubnav && navIndex === index ? 'block' : 'hidden'}`}>

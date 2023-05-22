@@ -1,7 +1,6 @@
 import { BiMenu, BiChevronDown, BiPhoneCall } from 'react-icons/bi'
-import { useState, useEffect } from 'react'
-
 import TopNav from './TopNav'
+
 function Navbar() {
 
 

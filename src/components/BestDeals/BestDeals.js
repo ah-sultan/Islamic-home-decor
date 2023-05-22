@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
 import ProductCard from '../ProductCard/ProductCard'
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
+import CountDown from '../CountDown/CountDown';
+
+// Swiper Js
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from "swiper";
 import 'swiper/css';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
-import CountDown from '../CountDown/CountDown';
 
 // Deals image
 import deals_img from '../../../public/images/best-deals/deals-img.webp'
@@ -31,7 +33,6 @@ function BestDeals(props) {
                         <div className="sm:flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
                             <div className="flex flex-col md:flex-row md:items-center">
                                 <h2 className="section-title pr-16">Deals Of The Day</h2>
-                                {/* Countdown Section */}
                                 <CountDown />
                             </div>
                             <div className="text-black text-right mt-3 sm:mt-0">
@@ -90,7 +91,8 @@ function BestDeals(props) {
                                     })
                                 }
                             </Swiper>
-                            {/* Button Section */}
+
+                            {/* Swiper navigation Button Section */}
                             <button className="trns-1 absolute w-10 h-10 rounded-full center-child left-0  top-1/2 -translate-y-1/2 -mt-5 text-gray-400 z-30 hover:bg-primary hover:text-white prevSlide">
                                 <BsChevronLeft className="text-xl" />
                             </button>
@@ -103,7 +105,7 @@ function BestDeals(props) {
                             </div>
                         </div>
 
-                        {/* Banner Image */}
+                        {/* Banner Image Section*/}
 
                     </div>
                     <div>
