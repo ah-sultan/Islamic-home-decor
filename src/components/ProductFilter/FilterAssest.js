@@ -95,32 +95,3 @@ export function ColorAssest() {
     )
 }
 
-export function BrandAssest() {
-    const [ShowSubnav, SetShowSubnav] = useState(false);
-
-    return (
-        <>
-            <div className="mb-5">
-                <div className=" justify-between items-center flex hover:text-accent text-sm capitalize font-medium" onClick={() => SetShowSubnav(!ShowSubnav)}>
-                    <span>
-                        Price
-                    </span>
-                    <BiChevronDown className={` trns-1 ${ShowSubnav ? 'rotate-180' : 'rotate-0'}`} />
-                </div>
-                <div className={`mt-2 pl-3 overflow-hidden trns-1 ${ShowSubnav ? 'hidden' : 'block'}`}>
-                    <ul>
-                        {
-                            Array(7).fill().map((_, index) => {
-                                return (
-                                    <li key={index} className="text-sm mb-3">
-                                        Asus
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-            </div>
-        </>
-    )
-}

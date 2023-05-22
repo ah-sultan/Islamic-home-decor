@@ -1,4 +1,4 @@
-import { CeatgoryAssest, PriceAssest, ColorAssest, BrandAssest } from "./FilterAssest"
+import { CeatgoryAssest, PriceAssest, ColorAssest } from "./FilterAssest"
 
 
 
@@ -11,7 +11,6 @@ function ProductFilter() {
                 <CeatgoryAssest />
                 <PriceAssest />
                 <ColorAssest />
-                <BrandAssest />
             </div>
         </>
     )
