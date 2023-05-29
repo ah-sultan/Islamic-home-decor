@@ -1,40 +1,45 @@
-import React from 'react';
-import Countdown from 'react-countdown';
+import React, { useState, useEffect } from 'react';
 
-const Completionist = () => <span>You are good to go!</span>;
+const CountDown = ({ targetDate }) => {
+    const [timeLeft, setTimeLeft] = useState(null);
 
-function CountDown() {
+    useEffect(() => {
+        const calculateTimeLeft = () => {
+            const difference = targetDate.getTime() - new Date().getTime();
 
-    const renderer = ({ days, hours, minutes, seconds, completed }) => {
-        if (completed) {
-            // Render a completed state
-            return <Completionist />;
-        } else {
-            // Render a countdown
-            return <span>{days}d : {hours}h : {minutes}m : {seconds}s </span>;
-        }
-    };
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((difference / 1000 / 60) % 60);
+                const seconds = Math.floor((difference / 1000) % 60);
 
+                setTimeLeft({ days, hours, minutes, seconds });
+            } else {
+                setTimeLeft(null);
+            }
+        };
 
-    // coundown Section
+        const timer = setInterval(() => {
+            calculateTimeLeft();
+        }, 1000);
 
-    const targetDate = new Date('2023-06-01');
+        return () => {
+            clearInterval(timer);
+        };
+    }, [targetDate]);
 
+    if (!timeLeft) {
+        return <div>Countdown has ended!</div>;
+    }
 
     return (
-        <>
-            <div className="flex items-center gap-x-3 ">
-                <p>Ends after:</p>
-                <div className="bg-primary py-1 px-2 text-white">
-                    <Countdown
-                        date={targetDate}
-                        renderer={renderer}
-                        daysInHours={true}
-                    />
-                </div>
-            </div>
-        </>
-    )
-}
+        <div className='flex text-center bg-primary p-1 px-2 text-white'>
+            <div>{timeLeft.days}d :&nbsp;</div>
+            <div>{timeLeft.hours}h : &nbsp;</div>
+            <div>{timeLeft.minutes}m : &nbsp;</div>
+            <div>{timeLeft.seconds}s</div>
+        </div>
+    );
+};
 
-export default CountDown
+export default CountDown;

@@ -1,6 +1,6 @@
 
 import Image from 'next/image'
-import react,{ useState, useEffect } from 'react';
+import react, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaStar, FaRegHeart, FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa'
@@ -15,7 +15,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 
 // Redux Features
 import { useDispatch, useSelector } from 'react-redux';
-import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
+import { addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice'
 
 
 function ProductDetailsCard(props) {
@@ -30,13 +30,12 @@ function ProductDetailsCard(props) {
     const rate = Math.floor(product.rating.rate)
     const discount = 0
     const discountprice = product.price - discount / 10
-    console.log(props)
 
     const cartItem = {
-        id : props.product.id,
-        title : props.product.title,
-        thumbnail : props.product.thumbnail,
-        price : props.product.price,
+        id: props.product.id,
+        title: props.product.title,
+        thumbnail: props.product.thumbnail,
+        price: props.product.price,
         size: props.size,
         color: 'red'
     }
@@ -47,18 +46,18 @@ function ProductDetailsCard(props) {
 
     useEffect(() => {
         cartdata?.map((data) => {
-            if(data.id === cartItem.id){
+            if (data.id === cartItem.id) {
                 setCount(data.quantity || 0)
             }
         })
 
     })
-   
+
 
     // add to cart handler
-    const addCartHandler = ()=>{
+    const addCartHandler = () => {
         dispatch(addToCart(cartItem))
-        
+
         count > 0 ? null : notify()
     }
 
@@ -99,15 +98,15 @@ function ProductDetailsCard(props) {
                             className="mySwiper"
 
                             breakpoints={{
-                                520 : {
-                                    slidesPerView : 4,
+                                520: {
+                                    slidesPerView: 4,
                                 },
-                                640 : {
-                                    slidesPerView : 4,
+                                640: {
+                                    slidesPerView: 4,
                                 },
 
-                                768 :{
-                                    slidesPerView : 5
+                                768: {
+                                    slidesPerView: 5
                                 }
                             }}
 
@@ -158,7 +157,7 @@ function ProductDetailsCard(props) {
                         <span className="sm:text-lg leading-relaxed font-semibold text-gray-800 inline-block min-w-[70px]">Size:</span>
                         <div>
                             {
-                                
+
                                 product.size?.length > 0 ? product.size.map((size, index) => {
                                     return <buttohn key={index} className={`mr-2 text-base text-gray-800 uppercase font-semi-bold`}>{size}</buttohn>
                                 }) : 'No Varient Size'
@@ -173,11 +172,11 @@ function ProductDetailsCard(props) {
                     <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
                         {/* Cart Item Counter */}
                         <div className="w-20 xs:w-24 h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
-                            <button onClick={() => count <= 0 ? null : dispatch(decrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">-</button>
+                            <button onClick={() => dispatch(decrementQuantity(cartItem.id))} type="button" className="text-white text-lg leading-5 font-medium">-</button>
                             <div className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2">
-                                {count}                            
+                                {count}
                             </div>
-                            <button onClick={() => count <= 0 ? null : dispatch(incrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">+</button>
+                            <button onClick={() => dispatch(addCartHandler)} type="button" className="text-white text-lg leading-5 font-medium">+</button>
                         </div>
 
                         {/* Add to cart button section */}
@@ -186,7 +185,7 @@ function ProductDetailsCard(props) {
                     </div>
 
                     {/* info section */}
-                    <p className="text-base leading-relaxed text-tGreay-200 font-semibold">Shipping:  <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.shipping === 0 ? 'shipping Free' : '$'+product.shipping}</span></p>
+                    <p className="text-base leading-relaxed text-tGreay-200 font-semibold">Shipping:  <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.shipping === 0 ? 'shipping Free' : '$' + product.shipping}</span></p>
                     <p className="text-base leading-relaxed text-tGreay-200 font-semibold my-2.5">Categories: <span className="font-normal text-tGreay-150 hover:text-primary-900">{product.category}</span></p>
 
                     {/* Share */}
@@ -201,7 +200,7 @@ function ProductDetailsCard(props) {
                     </div>
                 </div>
             </div>
-            <ToastContainer autoClose={500} theme={'dark'}/>
+            <ToastContainer autoClose={500} theme={'dark'} />
         </div>
     )
 }

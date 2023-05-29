@@ -14,6 +14,7 @@ import deals_img from '../../../public/images/best-deals/deals-img.webp'
 import Image from 'next/image';
 
 function BestDeals(props) {
+    const targetDate = new Date('2023-06-01');
 
     const pagination = {
         clickable: true,
@@ -33,7 +34,7 @@ function BestDeals(props) {
                         <div className="sm:flex items-center justify-between py-3 px-5 border-b-2 border-gray-300">
                             <div className="flex flex-col md:flex-row md:items-center">
                                 <h2 className="section-title pr-16">Deals Of The Day</h2>
-                                <CountDown />
+                                <CountDown targetDate={targetDate} />
                             </div>
                             <div className="text-black text-right mt-3 sm:mt-0">
                                 <Link href="/shop">

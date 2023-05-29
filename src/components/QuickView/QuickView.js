@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import react,{ useState, useEffect } from 'react';
+import react, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { FaStar, FaRegHeart, FaFacebookF, FaTwitter, FaGoogle, FaInstagram } from 'react-icons/fa'
@@ -17,10 +17,10 @@ import { FreeMode, Navigation, Thumbs } from "swiper";
 // Redux features
 import { useDispatch, useSelector } from 'react-redux';
 import { hideQuickView } from '@/feature/QuickView/quickViewSlice';
-import {addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice' 
+import { addToCart, incrementQuantity, decrementQuantity, } from '@/feature/Cart/cartSlice'
 
 
-function QuickView({product}) {
+function QuickView({ product }) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [count, setCount] = useState(0)
 
@@ -28,17 +28,17 @@ function QuickView({product}) {
     // Tostify Message
     const notify = () => toast("Product Added To Cart");
 
-    
+
     const images = product.image
     const rate = Math.floor(product?.rating.rate)
     const discount = 0
     const discountprice = product.price - discount / 10
 
     const cartItem = {
-        id : product.id,
-        title : product.title,
-        thumbnail : product.thumbnail,
-        price : product.price,
+        id: product.id,
+        title: product.title,
+        thumbnail: product.thumbnail,
+        price: product.price,
         size: product.size,
     }
 
@@ -47,28 +47,28 @@ function QuickView({product}) {
     const cartdata = useSelector((state) => state.cart.cart)
 
 
-    function quickViewHander(){
-       dispatch(hideQuickView(false))
-        
-    }
-  
-      useEffect(() => {
+    function quickViewHander() {
+        dispatch(hideQuickView(false))
 
-        
-          cartdata?.map((data) => {
-              if(data.id === cartItem.id){
-                  setCount(data.quantity || 0)
-              }
-          })
-  
-      })
-     
-      // add to cart handler
-      const addCartHandler = ()=>{
-          dispatch(addToCart(cartItem))
-          
-          count > 0 ? null : notify()
-      }
+    }
+
+    useEffect(() => {
+
+
+        cartdata?.map((data) => {
+            if (data.id === cartItem.id) {
+                setCount(data.quantity || 0)
+            }
+        })
+
+    })
+
+    // add to cart handler
+    const addCartHandler = () => {
+        dispatch(addToCart(cartItem))
+
+        count > 0 ? null : notify()
+    }
 
     return (
         <div className="fixed left-0 right-0 top-0 bottom-0 z-[120] bg-[rgba(0,0,0,.9)] animate-popup">
@@ -78,7 +78,7 @@ function QuickView({product}) {
             <div className="w-full lg:container lg:center-child h-full overflow-scroll py-10 sm:py-20 lg:py-0">
                 <div className="bg-white w-11/12 sm:w-10/12 mx-auto p-4 sm:p-6 md:p-8 relative">
                     <div className="flex flex-col lg:flex lg:flex-row gap-y-7 gap-x-8 items-start">
-                        
+
                         {/* Images Section ================================*/}
                         <div className="w-full lg:w-5/12">
                             <div className="border">
@@ -113,7 +113,7 @@ function QuickView({product}) {
                                     className="mySwiper"
 
                                     breakpoints={{
-                                        640 : {slidesPerView : 4},
+                                        640: { slidesPerView: 4 },
                                     }}
 
                                 >
@@ -133,9 +133,9 @@ function QuickView({product}) {
                         <div className="w-full lg:w-7/12">
                             {/* Popup Close Button ================= */}
                             <div className="text-right mb-4">
-                                    <button onClick={quickViewHander} type="button" className="text-2xl absolute z-50 right-7 top-7 sm:right-10 sm:top-10 lg:right-6 lg:top-6">
-                                        <AiOutlineClose/>
-                                    </button>
+                                <button onClick={quickViewHander} type="button" className="text-2xl absolute z-50 right-7 top-7 sm:right-10 sm:top-10 lg:right-6 lg:top-6">
+                                    <AiOutlineClose />
+                                </button>
                             </div>
                             <h4 className="text-base sm:text-xl leading-normal font-medium text-black mb-3">{product.title}</h4>
                             <h6 className="text-primary text-lg leading-relaxed mb-2">${product.price.toFixed(2)} <span className="text-gray-500"><del>${discountprice.toFixed(2)}</del></span></h6>
@@ -182,13 +182,13 @@ function QuickView({product}) {
                             {/* Button Section */}
                             <div className="flex gap-x-2 sm:gap-x-2.5 mb-7">
                                 <div className="w-20 md:w-24 h-10 sm:h-12 rounded-sm bg-gray-800 flex items-center justify-between px-2">
-                                    <button type="button" className="text-white text-lg leading-5 font-medium"  onClick={() => count <= 0 ? null : dispatch(decrementQuantity(cartItem.id)) }>-</button>
+                                    <button type="button" className="text-white text-lg leading-5 font-medium" onClick={() => dispatch(decrementQuantity(cartItem.id))}>-</button>
 
                                     <div className="border-0 bg-transparent text-sm leading-relaxed text-white text-center font-normal focus:outline-none w-1/2">
-                                        {count}                            
+                                        {count}
                                     </div>
 
-                                    <button onClick={() => count <= 0 ? null : dispatch(incrementQuantity(cartItem.id)) } type="button" className="text-white text-lg leading-5 font-medium">+</button>
+                                    <button onClick={addCartHandler} type="button" className="text-white text-lg leading-5 font-medium">+</button>
                                 </div>
                                 <button onClick={addCartHandler} className="px-1.5 sm:px-8 rounded-sm h-10 sm:h-12 bg-primary text-white font-semibold text-[12px] sm:text-sm leading-relaxed block uppercase hover:bg-black trns-1 tracking-widest">Add To Cart</button>
                                 <button className="sm:w-12 w-10 sm:h-12 rounded-sm center-child bg-gray-800 text-white text-lg hover:bg-black trns-1"><FaRegHeart /></button>
